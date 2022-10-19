@@ -57,6 +57,8 @@
      <Compile Include="Assets\Scripts\CareerGoal.cs" />
      <Compile Include="Assets\Scripts\Controllers\InputManager.cs" />
      <Compile Include="Assets\Scripts\SciptableObjects\ScriptScriptableObject\TypeRunners.cs" />
+     <Compile Include="Assets\Scripts\Rulet\PowerRuletScript.cs" />
+     <Compile Include="Assets\Scripts\Rulet\PowerUI.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.25f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

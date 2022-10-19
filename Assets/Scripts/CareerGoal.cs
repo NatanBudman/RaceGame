@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Meta : MonoBehaviour
+public class CareerGoal : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int TotalControlPoints;
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
+        if (other.CompareTag("Runner"))
+        {
+            AutoProvisional ProvisionalCar = other.gameObject.GetComponent<AutoProvisional>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            if (ProvisionalCar.ControlPointsReached >= TotalControlPoints)
+            {
+                ProvisionalCar.ControlPointsReached = 0;
+                ProvisionalCar.TotalCrossFinishLine++;
+            }
+            
+        }
     }
 }
