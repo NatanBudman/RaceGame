@@ -40,6 +40,11 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Car.Move(MovForward,MovReverse,MovLeft,MovRight);
+
+        if (Input.GetKeyDown(PowerActive)) Car.UsePower();
+        
+            
         
     }
 }

@@ -11,9 +11,10 @@ public class ControlPoint : MonoBehaviour
     {
         if (other.CompareTag("Runner"))
         {
+            Debug.Log("entre");
             AutoProvisional ProvisionalCar = other.gameObject.GetComponent<AutoProvisional>();
 
-            if (ProvisionalCar.ControlPointsReached <= OrderPoint)
+            if (ProvisionalCar.ControlPointsReached <= OrderPoint && ProvisionalCar.ControlPointsReached + 1 ==  OrderPoint)
             {
                 ProvisionalCar.ControlPointsReached = OrderPoint;
             }
