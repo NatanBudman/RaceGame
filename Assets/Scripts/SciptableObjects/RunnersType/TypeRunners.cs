@@ -8,9 +8,17 @@ public class TypeRunners : ScriptableObject
   
   // Set stats
   public float velocity => _stats.velocity;
+
+  public float Acceleration => _stats.Acceleration;
+
+  public float EnergyConsum => _stats.EnergyConsum;
 }
 [System.Serializable]
 public struct Stats
 {
     public float velocity;
+
+    public float Acceleration;
+
+    public float EnergyConsum;
 }

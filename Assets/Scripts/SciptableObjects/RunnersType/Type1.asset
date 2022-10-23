@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Type1
   m_EditorClassIdentifier: 
   _stats:
-    velocity: 5
+    velocity: 15
+    Acceleration: 0
+    EnergyConsum: 0
