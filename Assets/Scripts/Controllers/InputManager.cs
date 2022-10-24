@@ -5,26 +5,22 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private AutoProvisional Car;
-
-    [Space] [Header("Move Inputs")] [Space]
+    [SerializeField] private ControllersScriptableObject _controllers;
 
     #region MoveInputs
 
-       [SerializeField] private KeyCode MovForward = KeyCode.W;
-       [SerializeField] private KeyCode MovLeft = KeyCode.A;
-       [SerializeField] private KeyCode MovRight = KeyCode.D;
-       [SerializeField] private KeyCode MovReverse = KeyCode.S;
+       private KeyCode MovForward => _controllers.MovForward;
+       private KeyCode MovLeft => _controllers.MovLeft;
+       private KeyCode MovRight => _controllers.MovRight;
+       private KeyCode MovReverse => _controllers.MovReverse;
 
     #endregion
-    [Space]
-    [Header("Actions Inputs")]
-    [Space]
 
     #region ActionInputs
 
-      [SerializeField] private KeyCode PowerActive = KeyCode.E;
-      [SerializeField] private KeyCode JumpActive = KeyCode.Space;
-      [SerializeField] private KeyCode TurboActive = KeyCode.LeftShift;
+      private KeyCode PowerActive => _controllers.PowerActive;
+      private KeyCode JumpActive => _controllers.JumpActive;
+      private KeyCode TurboActive => _controllers.TurboActive;
 
     #endregion
     

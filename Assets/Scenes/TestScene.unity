@@ -1540,13 +1540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Car: {fileID: 1394448212}
-  MovForward: 119
-  MovLeft: 97
-  MovRight: 100
-  MovReverse: 115
-  PowerActive: 101
-  JumpActive: 32
-  TurboActive: 304
+  _controllers: {fileID: 11400000, guid: 7d3d7c7462ad09b499943bc719afc393, type: 2}
 --- !u!1 &1436279245
 GameObject:
   m_ObjectHideFlags: 0
