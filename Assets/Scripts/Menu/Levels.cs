@@ -43,10 +43,32 @@ public class Levels : MonoBehaviour
 
     [SerializeField] private Slider TimeBoxSlider;
     [SerializeField] private Slider iaSlider;
+    [SerializeField] private Slider IaPlayerSlider;
 
-    private bool isHasBalance => _rules.IsHasBalance;
+    private bool isHasBalance
+    {
+        get => _rules.IsHasBalance;
+        set => _rules.IsHasBalance = value;
+    }
 
     private bool isUpdateUI;
+
+    private int IAsPlayer
+    {
+        get => _rules.IAsPlayers;
+        set => _rules.IAsPlayers = value;
+    }
+    [SerializeField] private Text iasPlayerCountText;
+
+
+    private int TurnCount
+    {
+        get => _rules.TurnsCount;
+        set => _rules.TurnsCount = value;
+    }
+
+    [SerializeField] private Text TurnsCountText;
+
 
     #endregion
     
@@ -57,6 +79,7 @@ public class Levels : MonoBehaviour
         
         iaSlider.onValueChanged.AddListener(ChangeDificultSlider);
         TimeBoxSlider.onValueChanged.AddListener(ChangeTimeBoxSlider);
+        IaPlayerSlider.onValueChanged.AddListener(ChangePlayerIASlider);
 
         UpdateUI();
 
@@ -117,6 +140,17 @@ public class Levels : MonoBehaviour
 
     void UpdateUI()
     {
+            _rules.DificultIA = IADificult;
+            _rules.IsHasBalance = isHasBalance;
+            _rules.TimeToSpawnBox = TimeBoxSpawn;
+            _rules.TurnsCount = TurnCount;
+            _rules.IAsPlayers = IAsPlayer;
+            
+            
+            // update text
+            TurnsCountText.text = "" + TurnCount;
+            timeBoxText.text = "" + TimeBoxSpawn;
+            iasPlayerCountText.text = "" + IAsPlayer;
             switch (IADificult)
             {
                 case 0:
@@ -136,13 +170,7 @@ public class Levels : MonoBehaviour
                     iaDifText.text = "Expert AI";
                     iaDifText.color = new Color(255, 0, 0);
                     break;
-                    
-                        
             }
-            _rules.DificultIA = IADificult;
-            _rules.IsHasBalance = isHasBalance;
-            timeBoxText.text = "" + TimeBoxSpawn;
-            _rules.TimeToSpawnBox = TimeBoxSpawn;
     }
 
     public void PlayButton()
@@ -168,5 +196,33 @@ public class Levels : MonoBehaviour
     {
         TimeBoxSpawn = value;
         UpdateUI();
+    }
+    public void ChangePlayerIASlider(float value)
+    {
+        IAsPlayer = (int)value;
+        UpdateUI();
+    }
+    public void ButtonTurns(bool SumaVueltas)
+    {
+        
+        if (SumaVueltas)
+        {
+            TurnCount++;
+            TurnCount = Mathf.Clamp(TurnCount, 1, 9);
+
+        }
+        else
+        {
+            TurnCount--;
+            TurnCount = Mathf.Clamp(TurnCount, 1, 9);
+        }
+
+        TurnsCountText.text = "" + TurnCount;
+
+    }
+
+    public void ToogleBalance(bool value)
+    {
+        isHasBalance = value;
     }
 }
