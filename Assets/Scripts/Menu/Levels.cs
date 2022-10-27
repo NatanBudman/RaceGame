@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Levels : MonoBehaviour
@@ -175,11 +176,11 @@ public class Levels : MonoBehaviour
 
     public void PlayButton()
     {
-        string MapSelected = $"Scene/{SceneName[DropMapsName.value]}";
+        string MapSelected = $"Scenes/{SceneName[DropMapsName.value]}";
         
         if (MapSelected != String.Empty)
         {
-            
+            SceneManager.LoadScene(MapSelected);
         }
         else
         {

@@ -6,12 +6,13 @@ using UnityEngine;
 public class BoxScript : MonoBehaviour
 {
     [SerializeField] private PowerRuletScript _ruletScript;
+    [SerializeField] private GameManager _gameManager;
     
     
     [SerializeField] private float RotateVelocity;
     private float addVelocity;
     
-    [SerializeField] private float EnableTimer;
+    [SerializeField] private float EnableTimer => _gameManager.TimeToSpawnBox;
      private float DisableCurrentTimer;
      
     [SerializeField] private GameObject Box;
