@@ -72,18 +72,23 @@ public class Levels : MonoBehaviour
 
 
     #endregion
-    
+
+  
+
     // Start is called before the first frame update
     void Start()
     {
+        UpdateUI();
+        
         Map.sprite = DropMapsName.options[0].image;
         
         iaSlider.onValueChanged.AddListener(ChangeDificultSlider);
         TimeBoxSlider.onValueChanged.AddListener(ChangeTimeBoxSlider);
         IaPlayerSlider.onValueChanged.AddListener(ChangePlayerIASlider);
-
-        UpdateUI();
-
+        
+        iaSlider.value = IADificult;
+        TimeBoxSlider.value = TimeBoxSpawn;
+        IaPlayerSlider.value = IAsPlayer;
     }
 
   
@@ -139,13 +144,22 @@ public class Levels : MonoBehaviour
 
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
+            // Set _rules
             _rules.DificultIA = IADificult;
             _rules.IsHasBalance = isHasBalance;
             _rules.TimeToSpawnBox = TimeBoxSpawn;
             _rules.TurnsCount = TurnCount;
             _rules.IAsPlayers = IAsPlayer;
+            
+            //Get _rules
+            
+            IADificult = _rules.DificultIA;
+            isHasBalance = _rules.IsHasBalance;
+            TimeBoxSpawn = _rules.TimeToSpawnBox;
+            TurnCount = _rules.TurnsCount;
+            IAsPlayer  =_rules.IAsPlayers ;
             
             
             // update text
