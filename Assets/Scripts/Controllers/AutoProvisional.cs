@@ -33,6 +33,7 @@ public class AutoProvisional : MonoBehaviour
     #region PlayerStats
 
     public float Speed => _stats.velocity;
+    public float Accel => _stats.Acceleration;
 
     #endregion
     // Start is called before the first frame update
@@ -70,19 +71,19 @@ public class AutoProvisional : MonoBehaviour
     {
         if (Input.GetKey(Forward))
         {
-            transform.position += Vector3.forward * Speed * Time.deltaTime;
+            transform.position += Vector3.forward * 0.5f * Accel * Speed * Time.deltaTime;
         }
         if (Input.GetKey(Down))
         {
-            transform.position -= Vector3.forward * Speed * Time.deltaTime;
+            transform.position -= Vector3.forward * 0.5f * Accel * Speed * Time.deltaTime;
         }
         if (Input.GetKey(left))
         {
-            transform.position += Vector3.left * Speed * Time.deltaTime;
+            transform.position += Vector3.left * 0.5f * Accel * Speed * Time.deltaTime;
         }
         if (Input.GetKey(right))
         {
-            transform.position += Vector3.right * Speed * Time.deltaTime;
+            transform.position += Vector3.right * 0.5f * Accel * Speed * Time.deltaTime;
         }
     }
 
