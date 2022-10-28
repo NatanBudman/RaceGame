@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Gaspi
   m_EditorClassIdentifier: 
   _stats:
-    velocity: 15
-    Acceleration: 0
+    velocity: 10
+    Acceleration: 1
     EnergyConsum: 0
