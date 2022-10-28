@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public int IAsPlayers => _rules.IAsPlayers;
 
     public int TurnsCount => _rules.TurnsCount;
+
+    public TypeRunners _PlayerStats => _rules.PlayerCharacterStats;
     // Start is called before the first frame update
     void Start()
     {

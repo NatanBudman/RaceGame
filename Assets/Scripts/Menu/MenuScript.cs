@@ -7,6 +7,7 @@ public class MenuScript : MonoBehaviour
     [SerializeField] private GameObject MenuInitial;
     [SerializeField] private GameObject Settings;
     [SerializeField] private GameObject Levels;
+    [SerializeField] private GameObject Characters;
 
 
 
@@ -15,6 +16,7 @@ public class MenuScript : MonoBehaviour
     private string MenuKey = "Menu";
     private string SettingKey = "Setting";
     private string LevelKey = "Levels";
+    private string CharacterKey = "Characters";
 
     #endregion
     // Start is called before the first frame update
@@ -30,23 +32,36 @@ public class MenuScript : MonoBehaviour
             MenuInitial.SetActive(true);
             Settings.SetActive(false);
             Levels.SetActive(false);
+            Characters.SetActive(false);
+
         }else if (Panel == "Setting")
         {
              Settings.SetActive(true);
             MenuInitial.SetActive(false);
             Levels.SetActive(false);
+            Characters.SetActive(false);
+
         }else if (Panel == "Levels")
         {
             Settings.SetActive(false);
             MenuInitial.SetActive(false);
             Levels.SetActive(true);
+            Characters.SetActive(false);
+        }else if (Panel == "Characters")
+        {
+            MenuInitial.SetActive(false);
+            Settings.SetActive(false);
+            Levels.SetActive(false);
+            Characters.SetActive(true);
         }
+
     }
 
     public void AdventureButton()
     {
-        ActivePanel(LevelKey);
+        ActivePanel(CharacterKey);
     }
+
     public void SettngButton()
     {
         ActivePanel(SettingKey);
@@ -59,5 +74,10 @@ public class MenuScript : MonoBehaviour
     public void Return()
     {
         ActivePanel(MenuKey);
+    }
+
+    public void ReturnCharacterPanel()
+    {
+        ActivePanel(CharacterKey);
     }
 }
