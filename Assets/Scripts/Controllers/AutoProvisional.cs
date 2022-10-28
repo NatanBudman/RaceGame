@@ -63,11 +63,13 @@ public class AutoProvisional : MonoBehaviour
         
         currentSpeed = Mathf.SmoothStep(currentSpeed, Speed, Time.deltaTime * 12f); Speed = 0f;
         currentRotate = Mathf.Lerp(currentRotate, rotate, Time.deltaTime * 2f); rotate = 0f;
-
+        
+        /*
         if (Speed < 0)
         {
             Speed = 0;
         }
+        */
         
         UpdateUI();
         if (isUseRulet)
@@ -77,10 +79,7 @@ public class AutoProvisional : MonoBehaviour
                 _ruletScript.isSpinRulet = true;
                 isHasPower = true;
             }
-            else
-            {
-                
-            }
+         
 
             isUseRulet = false;
         }
@@ -89,7 +88,7 @@ public class AutoProvisional : MonoBehaviour
 
     private void FixedUpdate()
     {
-        sphere.AddForce(transform.right * currentSpeed, ForceMode.Acceleration);
+       // sphere.AddForce(transform.right * currentSpeed, ForceMode.Acceleration);
         
         //Gravity
         sphere.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
