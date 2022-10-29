@@ -9,6 +9,9 @@ public class CharacterSelector : MonoBehaviour
 {
     [SerializeField] private GameRules _rules;
     [SerializeField] private GameObject Levelpanel;
+    [SerializeField] private GameObject CharacterPanel;
+    [SerializeField] private GameObject MenuPanel;
+    [SerializeField] private GameObject KartPanel;
     [SerializeField] private Transform PanelSelector;
     
     private bool isSelectedKart = false;
@@ -17,10 +20,10 @@ public class CharacterSelector : MonoBehaviour
     #region CharactersStats
 [Header("Stats")]
 [Space]
-    public TypeRunners Gaspi;
-    public TypeRunners Marito;
-    public TypeRunners BarbaKhan;
-    public TypeRunners Alfredito;
+    public TypeRunners Kart1;
+    public TypeRunners Kart2;
+    public TypeRunners Kart3;
+    public TypeRunners Kart4;
 
     #endregion
 
@@ -51,12 +54,6 @@ public class CharacterSelector : MonoBehaviour
         BarSteering.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void CharactersStatsUI(string Name, string skill)
     {
         text.color = new Color(255, 255, 255);
@@ -78,40 +75,80 @@ public class CharacterSelector : MonoBehaviour
 
     public void Kart1Selected()
     {
-        _rules.PlayerCharacterStats = Gaspi;
+        _rules.PlayerCharacterStats = Kart1;
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = GaspiButtonPos.transform.position;
         isSelectedKart = true;
-        CharactersStatsUI("Gaspi", "Object Theft");
+        KartUIStats(Kart1.velocity, Kart1.Acceleration, 35);
+
     }
 
     public void Kart2Seleced()
     {
-        _rules.PlayerCharacterStats = Alfredito;
+        _rules.PlayerCharacterStats = Kart4;
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = AlfreditoButtonPos.transform.position;
         isSelectedKart = true;
-        CharactersStatsUI("Alfredito", "Force Field");
+        KartUIStats(Kart2.velocity, Kart2.Acceleration, 35);
+
 
     }
 
     public void Kart3Seleced()
     {
-        _rules.PlayerCharacterStats = Marito;
+        _rules.PlayerCharacterStats = Kart2;
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = MaritoButtonPos.transform.position;
         isSelectedKart = true;
-        CharactersStatsUI("Marito", "Double Object");
+        KartUIStats(Kart3.velocity, Kart3.Acceleration, 35);
+
 
     }
 
     public void Kart4Seleced()
     {
-        _rules.PlayerCharacterStats = BarbaKhan;
+        _rules.PlayerCharacterStats = Kart3;
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = BarbaKhanButtonPos.transform.position;
         isSelectedKart = true;
+        KartUIStats(Kart4.velocity, Kart4.Acceleration, 35);
+
+
+    }
+
+    public void GaspiSelected()
+    {
+        CharactersStatsUI("Gaspi", "Object Theft");
+        PanelSelector.gameObject.SetActive(true);
+        PanelSelector.transform.position = GaspiButtonPos.transform.position;
+        isSelecteCharacter = true;
+
+    }
+    public void MaritoSelected()
+    {
+        CharactersStatsUI("Marito", "Double Object");
+        PanelSelector.gameObject.SetActive(true);
+        PanelSelector.transform.position = MaritoButtonPos.transform.position;
+        isSelecteCharacter = true;
+
+
+    }
+    public void BarbaSelected()
+    {
         CharactersStatsUI("BarbaKhan", "Fake Object");
+        PanelSelector.gameObject.SetActive(true);
+        PanelSelector.transform.position = BarbaKhanButtonPos.transform.position;
+        isSelecteCharacter = true;
+
+
+    }
+    public void AlfreditoSelected()
+    {
+        CharactersStatsUI("Alfredito", "Force Field");
+        PanelSelector.gameObject.SetActive(true);
+        PanelSelector.transform.position = AlfreditoButtonPos.transform.position;
+        isSelecteCharacter = true;
+
 
     }
 
@@ -119,16 +156,48 @@ public class CharacterSelector : MonoBehaviour
     {
         if (isSelectedKart)
         {
-            text.text = "";
-             Levelpanel.SetActive(true);
-             this.gameObject.SetActive(false);
+            CharacterPanel.gameObject.SetActive(true);
+            PanelSelector.gameObject.SetActive(false);
+
         }
         else
         {
             text.color = new Color(255, 0, 0);
+            text.text = "Choose Kart";
+        }
+
+        if (!isSelecteCharacter && isSelectedKart)
+        {
             text.text = "Choose Character";
+        }
+        if (isSelecteCharacter && isSelectedKart)
+        {
+            text.text = "";
+            Levelpanel.SetActive(true);
+            this.gameObject.SetActive(false);
         }
 
 
+    }
+
+    public void Return()
+    {
+        if (!isSelectedKart)
+        {
+            this.gameObject.SetActive(false);
+            PanelSelector.gameObject.SetActive(false);
+
+            MenuPanel.SetActive(true);
+        }
+
+        if (isSelectedKart)
+        {
+            isSelectedKart = false;
+            isSelecteCharacter = false;
+            text.text = "";
+            CharacterPanel.SetActive(false);
+            PanelSelector.gameObject.SetActive(false);
+            KartPanel.SetActive(true);
+        }
     }
 }

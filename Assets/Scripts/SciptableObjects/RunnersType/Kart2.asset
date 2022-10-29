@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Kart2
   m_EditorClassIdentifier: 
   _stats:
-    velocity: 0
-    Acceleration: 0
+    velocity: 3
+    Acceleration: 1.5
     EnergyConsum: 0
