@@ -4108,7 +4108,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1315600819}
         m_TargetAssemblyTypeName: CharacterSelector, Assembly-CSharp
-        m_MethodName: GaspiSelected
+        m_MethodName: Kart1Selected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5322,7 +5322,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1315600819}
         m_TargetAssemblyTypeName: CharacterSelector, Assembly-CSharp
-        m_MethodName: BarbakhanSeleced
+        m_MethodName: Kart4Seleced
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7903,7 +7903,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1315600819}
         m_TargetAssemblyTypeName: CharacterSelector, Assembly-CSharp
-        m_MethodName: AlfeditoSeleced
+        m_MethodName: Kart2Seleced
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8270,7 +8270,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1315600819}
         m_TargetAssemblyTypeName: CharacterSelector, Assembly-CSharp
-        m_MethodName: MaritoSeleced
+        m_MethodName: Kart3Seleced
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

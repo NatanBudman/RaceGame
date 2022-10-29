@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e530855a5111a3d4db369529487beda8, type: 3}
-  m_Name: MarikoBaracus
+  m_Name: Kart4
   m_EditorClassIdentifier: 
   _stats:
-    velocity: 0
-    Acceleration: 0
+    velocity: 1.5
+    Acceleration: 0.5
     EnergyConsum: 0

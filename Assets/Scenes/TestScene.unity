@@ -2202,7 +2202,7 @@ MonoBehaviour:
     m_Bits: 1
   kartNormal: {fileID: 1297654436}
   VehicleCamera: {fileID: 963194227}
-  _stats: {fileID: 11400000, guid: f3096edf6fdce604f8dd3c90b68cba9c, type: 2}
+  _stats: {fileID: 11400000, guid: ea786bb5b98599b4e843fb5a95528bd2, type: 2}
   _ruletScript: {fileID: 695958132}
   sphere: {fileID: 1394448208}
   ControlPointsReached: 0
