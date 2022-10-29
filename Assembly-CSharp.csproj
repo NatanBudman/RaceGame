@@ -61,8 +61,7 @@
      <Compile Include="Assets\Scripts\SciptableObjects\RunnersType\TypeRunners.cs" />
      <Compile Include="Assets\Scripts\Controllers\AutoProvisional.cs" />
      <Compile Include="Assets\Scripts\ControlPoint.cs" />
-     <Compile Include="Assets\Scripts\Controllers\KartController.cs" />
-     <Compile Include="Assets\Scripts\Controllers\ExtensionMethods.cs" />
+     <Compile Include="Assets\Scripts\Controllers\KartControllerTest.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.25f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -286,7 +285,7 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.25f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>D:/GitHubRepos/MiniRPG/RaceGame/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+ <HintPath>D:/GitHubRepos/RaceGame/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.25f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -634,34 +633,34 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.25f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>D:/GitHubRepos/MiniRPG/RaceGame/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>D:/GitHubRepos/RaceGame/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/GitHubRepos/MiniRPG/RaceGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/GitHubRepos/RaceGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>D:/GitHubRepos/MiniRPG/RaceGame/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+ <HintPath>D:/GitHubRepos/RaceGame/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>D:/GitHubRepos/MiniRPG/RaceGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>D:/GitHubRepos/RaceGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>D:/GitHubRepos/MiniRPG/RaceGame/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>D:/GitHubRepos/RaceGame/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/GitHubRepos/MiniRPG/RaceGame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/GitHubRepos/RaceGame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>D:/GitHubRepos/MiniRPG/RaceGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>D:/GitHubRepos/RaceGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PlasticSCM.Editor">
- <HintPath>D:/GitHubRepos/MiniRPG/RaceGame/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+ <HintPath>D:/GitHubRepos/RaceGame/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>D:/GitHubRepos/MiniRPG/RaceGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>D:/GitHubRepos/RaceGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/GitHubRepos/MiniRPG/RaceGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/GitHubRepos/RaceGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
