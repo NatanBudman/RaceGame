@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameRules _rules;
+    #region Game_Rules
 
-    public int DificultIA => _rules.DificultIA;
+       [SerializeField] private GameRules _rules;
+    
+        public int DificultIA => _rules.DificultIA;
+    
+        public float TimeToSpawnBox => _rules.TimeToSpawnBox;
+    
+        public bool IsHasBalance => _rules.IsHasBalance;
+    
+        public int IAsPlayers => _rules.IAsPlayers;
+    
+        public int TurnsCount => _rules.TurnsCount;
 
-    public float TimeToSpawnBox => _rules.TimeToSpawnBox;
-
-    public bool IsHasBalance => _rules.IsHasBalance;
-
-    public int IAsPlayers => _rules.IAsPlayers;
-
-    public int TurnsCount => _rules.TurnsCount;
-
+    #endregion
+ 
+// Player Stats
     public TypeRunners _PlayerStats => _rules.PlayerCharacterStats;
     // Start is called before the first frame update
     void Start()

@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class KartControllerTest : MonoBehaviour
 {
-    [SerializeField] private TypeRunners _stats;
+    [SerializeField] private GameManager _gameManager;
+    private TypeRunners _stats => _gameManager._PlayerStats;
 
     [SerializeField] private Rigidbody sphereRb;
     [SerializeField] private LayerMask groundLayerMask;
@@ -20,6 +21,8 @@ public class KartControllerTest : MonoBehaviour
     private void Start()
     {
         sphereRb.transform.parent = null;
+        _gameManager = FindObjectOfType<GameManager>();
+
     }
 
 
