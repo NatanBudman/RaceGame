@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField] private AutoProvisional Car;
+    [SerializeField] private KartPowerPickUp Car;
     [SerializeField] private ControllersScriptableObject _controllers;
 
     #region MoveInputs
@@ -36,11 +36,7 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Car.Move(MovForward,MovReverse,MovLeft,MovRight);
-
         if (Input.GetKeyDown(PowerActive)) Car.UsePower();
-        
-            
         
     }
 }

@@ -9,7 +9,7 @@ public class CareerGoal : MonoBehaviour
     {
         if (other.CompareTag("Runner"))
         {
-            AutoProvisional ProvisionalCar = other.gameObject.GetComponent<AutoProvisional>();
+            KartPowerPickUp ProvisionalCar = other.gameObject.GetComponent<KartPowerPickUp>();
 
             if (ProvisionalCar.ControlPointsReached >= TotalControlPoints)
             {

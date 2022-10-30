@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class KartControllerTest : MonoBehaviour
 {
+    [SerializeField] private TypeRunners _stats;
 
     [SerializeField] private Rigidbody sphereRb;
     [SerializeField] private LayerMask groundLayerMask;

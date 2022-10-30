@@ -58,12 +58,13 @@ public class BoxScript : MonoBehaviour
         {
             Box.gameObject.SetActive(false);
 
-            if (other.GetComponent<AutoProvisional>())
+            if (other.GetComponent<KartPowerPickUp>())
             {
                 // Player
-                other.GetComponent<AutoProvisional>().isUseRulet = true;
+                other.GetComponent<KartPowerPickUp>().isUseRulet = true;
+                Debug.Log("entre");
                 
-            }else if (other.GetComponent<AutoProvisional>() == null)
+            }else if (other.GetComponent<KartPowerPickUp>() == null)
             {
                 // IA
             }
