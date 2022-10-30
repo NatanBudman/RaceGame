@@ -37,6 +37,10 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(PowerActive)) Car.UsePower();
+
+        if (Input.GetKey(TurboActive)) Car.UseTurbo(true);
+        if (Input.GetKeyUp(TurboActive)) Car.UseTurbo(false);
+      
         
     }
 }

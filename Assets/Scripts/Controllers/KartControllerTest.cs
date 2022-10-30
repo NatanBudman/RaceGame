@@ -10,13 +10,27 @@ public class KartControllerTest : MonoBehaviour
 
     [SerializeField] private Rigidbody sphereRb;
     [SerializeField] private LayerMask groundLayerMask;
-    [SerializeField] private float forwardSpeed;
-    [SerializeField] private float turnSpeed;
+
+    #region KartStats
+
+      
+    
+        public float forwardSpeed;
+        private float turnSpeed => _stats.TurnSpeed;
+
+    #endregion
+
     
     private float _forwardAmount;
     private float _currentSpeed;
     private float _turnAmount;
     private bool _isGrounded; //opcional para que no doble en el piso sin moverse ni acelerar en el aire
+    private float _vel;
+
+    private void Awake()
+    {
+        forwardSpeed = _stats.velocity;
+    }
 
     private void Start()
     {

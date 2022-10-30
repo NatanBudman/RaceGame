@@ -3,7 +3,17 @@ guid: 1393d143ba674f54294e3bc720ed37d8
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kart
+    second: {fileID: 2100000, guid: b0a4d4353fe973945bd8b2cbfe8868e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: outline
+    second: {fileID: 2100000, guid: b0a4d4353fe973945bd8b2cbfe8868e6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

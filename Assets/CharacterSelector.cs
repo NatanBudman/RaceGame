@@ -45,6 +45,17 @@ public class CharacterSelector : MonoBehaviour
 
     #endregion
 
+
+    #region SpecialSkills
+
+    [Space] [Header("SpecialPowers")] [Space] 
+    [SerializeField] private GameObject ForceField;
+    [SerializeField] private GameObject FakeObject;
+    [SerializeField] private GameObject DoubleObject;
+    [SerializeField] private GameObject ObjectThieft;
+
+    #endregion
+    [Space]
     [SerializeField] private Text text;
     // Start is called before the first frame update
     void Start()
@@ -61,7 +72,7 @@ public class CharacterSelector : MonoBehaviour
    
     }
 
-    void KartUIStats(float Vel,float Acceleration,int Steering)
+    void KartUIStats(float Vel,float Acceleration,float Steering)
     {
         // bar
         BarAcce.gameObject.SetActive(true);
@@ -69,8 +80,8 @@ public class CharacterSelector : MonoBehaviour
         BarSteering.gameObject.SetActive(true);
                     
         BarAcce.fillAmount = Acceleration / 2;
-        BarVel.fillAmount = Vel / 3;
-        BarSteering.fillAmount = Acceleration / 50;
+        BarVel.fillAmount = Vel / 130;
+        BarSteering.fillAmount = Steering / 50;
     }
 
     public void Kart1Selected()
@@ -79,7 +90,7 @@ public class CharacterSelector : MonoBehaviour
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = GaspiButtonPos.transform.position;
         isSelectedKart = true;
-        KartUIStats(Kart1.velocity, Kart1.Acceleration, 35);
+        KartUIStats(Kart1.velocity, Kart1.Acceleration, Kart1.TurnSpeed);
 
     }
 
@@ -89,7 +100,7 @@ public class CharacterSelector : MonoBehaviour
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = AlfreditoButtonPos.transform.position;
         isSelectedKart = true;
-        KartUIStats(Kart2.velocity, Kart2.Acceleration, 35);
+        KartUIStats(Kart2.velocity, Kart2.Acceleration, Kart2.TurnSpeed);
 
 
     }
@@ -100,7 +111,7 @@ public class CharacterSelector : MonoBehaviour
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = MaritoButtonPos.transform.position;
         isSelectedKart = true;
-        KartUIStats(Kart3.velocity, Kart3.Acceleration, 35);
+        KartUIStats(Kart3.velocity, Kart3.Acceleration, Kart3.TurnSpeed);
 
 
     }
@@ -111,7 +122,7 @@ public class CharacterSelector : MonoBehaviour
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = BarbaKhanButtonPos.transform.position;
         isSelectedKart = true;
-        KartUIStats(Kart4.velocity, Kart4.Acceleration, 35);
+        KartUIStats(Kart4.velocity, Kart4.Acceleration, Kart4.TurnSpeed);
 
 
     }
@@ -121,6 +132,7 @@ public class CharacterSelector : MonoBehaviour
         CharactersStatsUI("Gaspi", "Object Theft");
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = GaspiButtonPos.transform.position;
+        _rules.PlayerCharacterStats.SpecialPower = ObjectThieft;
         isSelecteCharacter = true;
 
     }
@@ -129,6 +141,8 @@ public class CharacterSelector : MonoBehaviour
         CharactersStatsUI("Marito", "Double Object");
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = MaritoButtonPos.transform.position;
+        _rules.PlayerCharacterStats.SpecialPower = DoubleObject;
+
         isSelecteCharacter = true;
 
 
@@ -138,6 +152,8 @@ public class CharacterSelector : MonoBehaviour
         CharactersStatsUI("BarbaKhan", "Fake Object");
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = BarbaKhanButtonPos.transform.position;
+        _rules.PlayerCharacterStats.SpecialPower = FakeObject;
+
         isSelecteCharacter = true;
 
 
@@ -147,6 +163,8 @@ public class CharacterSelector : MonoBehaviour
         CharactersStatsUI("Alfredito", "Force Field");
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = AlfreditoButtonPos.transform.position;
+        _rules.PlayerCharacterStats.SpecialPower = ForceField;
+
         isSelecteCharacter = true;
 
 
