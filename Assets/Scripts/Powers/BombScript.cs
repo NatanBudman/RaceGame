@@ -14,6 +14,10 @@ public class BombScript : MonoBehaviour
     [SerializeField] private float timeToReturnVel;
 
    float currentRetunrVel;
+
+   [SerializeField] private float TimeLife;
+
+   private float currenTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +42,20 @@ public class BombScript : MonoBehaviour
                 kart = null;
                 
             }
+        }
+
+        if (Bomb.activeSelf)
+        {
+            currenTime += Time.deltaTime;
+
+            if (currenTime >= TimeLife )
+            {
+                Bomb.SetActive(false);
+            }
+        }
+        else
+        {
+            currenTime = 0;
         }
     }
 

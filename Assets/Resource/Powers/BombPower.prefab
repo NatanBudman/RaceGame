@@ -1187,10 +1187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b6fda844a54c14ba056bfe5186da93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vel: 0
-  kart: {fileID: 0}
   Bomb: {fileID: 6581004440982056396}
   timeToReturnVel: 0.5
+  TimeLife: 5
 --- !u!65 &8907708932175948427
 BoxCollider:
   m_ObjectHideFlags: 0
