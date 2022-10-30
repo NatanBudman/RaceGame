@@ -12,6 +12,14 @@ public class TypeRunners : ScriptableObject
   public float Acceleration => _stats.Acceleration;
 
   public float EnergyConsum => _stats.EnergyConsum;
+  
+  public float TurnSpeed => _stats.TurnSpeed;
+  
+  public GameObject SpecialPower
+  {
+      get => _stats.SpecialPower;
+      set => _stats.SpecialPower = value;
+  }
 }
 [System.Serializable]
 public struct Stats
@@ -21,4 +29,8 @@ public struct Stats
     public float Acceleration;
 
     public float EnergyConsum;
+
+    public float TurnSpeed;
+
+    public GameObject SpecialPower;
 }

@@ -54,7 +54,7 @@ public class BoxScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Runner"))
+        if (other.CompareTag("Runner") && Box.activeSelf == true)
         {
             Box.gameObject.SetActive(false);
 
@@ -62,7 +62,6 @@ public class BoxScript : MonoBehaviour
             {
                 // Player
                 other.GetComponent<KartPowerPickUp>().isUseRulet = true;
-                Debug.Log("entre");
                 
             }else if (other.GetComponent<KartPowerPickUp>() == null)
             {
