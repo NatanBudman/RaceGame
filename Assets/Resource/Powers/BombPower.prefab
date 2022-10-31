@@ -1190,6 +1190,8 @@ MonoBehaviour:
   Bomb: {fileID: 6581004440982056396}
   timeToReturnVel: 0.5
   TimeLife: 5
+  OwnerObject: {fileID: 0}
+  TimeOwnerObject: 4
 --- !u!65 &8907708932175948427
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 public class PowerRuletScript : MonoBehaviour
@@ -28,6 +29,14 @@ public class PowerRuletScript : MonoBehaviour
     private bool isSelectedItem;
 
     private bool isForceStop;
+[Space]
+    [Header("PowersPicks")]
+    [Space]
+    public GameObject PowerSelected;
+
+    [Space] [SerializeField] private GameObject[] Powers;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -112,11 +121,15 @@ public class PowerRuletScript : MonoBehaviour
     private int ClosePower;
     void SelectedPowerImage()
     {
-        ClosePower = Random.Range(0, ArrayPowerImage.Length - 1);
+        ClosePower = Random.Range(0, ArrayPowerImage.Length);
+        PowerSelected = Powers[ClosePower];
+        
+        
     }
 
     void ForceStop()
     {
-        ClosePower = Random.Range(0, ArrayPowerImage.Length - 1);
+        ClosePower = Random.Range(0, ArrayPowerImage.Length);
+        PowerSelected = Powers[ClosePower];
     }
 }
