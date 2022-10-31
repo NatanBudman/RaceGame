@@ -47,6 +47,14 @@ public class KartPowerPickUp : MonoBehaviour
 
     private float TimeSlowed;
     private float VelSlowed ;
+
+    [Space]
+    [Header("PowerPick")]
+    [Space]
+    public Transform BackPowerPos;
+    public Transform ForwardPowerPos;
+    private GameObject PowerHasPlayer => _ruletScript.PowerSelected;
+    
     
     void Start()
     {
@@ -97,7 +105,6 @@ public class KartPowerPickUp : MonoBehaviour
             else
             {
                 kart.forwardSpeed = BaseKarVel;
-                Debug.Log(kart.forwardSpeed);
 
                 isSlowed = false;
             }
@@ -119,6 +126,7 @@ public class KartPowerPickUp : MonoBehaviour
     {
         if (isHasPower && _ruletScript.StopSpin)
         {
+            PowerSelectionate();
             isHasPower = false;
             _ruletScript.isSpinRulet = false;
         }
@@ -144,5 +152,38 @@ public class KartPowerPickUp : MonoBehaviour
         this.isSlowed = isSlowed;
         TimeSlowed = TimeSlow;
         VelSlowed = velocySlow;
+    }
+
+    private void PowerSelectionate()
+    {
+        if (PowerHasPlayer.GetComponent<MissileScript>())
+        {
+            // reutilizando el slowed para un boost de velocidad
+           GameObject missil = Instantiate(PowerHasPlayer, ForwardPowerPos.position, Quaternion.identity);
+           missil.GetComponent<MissileScript>().OwnerGameObject = this.gameObject;
+            return;
+
+        }
+// if a shield
+        if (PowerHasPlayer.GetComponent<ShieldCollision>())
+        {
+            PowerHasPlayer.gameObject.SetActive(true);         
+            return;
+        }
+
+        if (PowerHasPlayer.GetComponent<BombScript>())
+        {
+            GameObject bomb = Instantiate(PowerHasPlayer, BackPowerPos.position, Quaternion.identity);
+            bomb.GetComponent<BombScript>().OwnerObject = this.gameObject;
+            return;
+
+        }
+
+        if (PowerHasPlayer.GetComponent<PinchosScript>())
+        {
+            GameObject pincho =Instantiate(PowerHasPlayer, BackPowerPos.position, Quaternion.identity);
+            pincho.GetComponent<PinchosScript>().OwnerObject = this.gameObject;
+            return;
+        }
     }
 }

@@ -18,3 +18,4 @@ MonoBehaviour:
     IsHasBalance: 1
     IAsPlayers: 6
     TurnsCount: 9
+    PlayerCharacterStats: {fileID: 11400000, guid: af1812db408794947a6dd420619c2418, type: 2}

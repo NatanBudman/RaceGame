@@ -18,6 +18,11 @@ public class BombScript : MonoBehaviour
    [SerializeField] private float TimeLife;
 
    private float currenTime;
+   
+   [HideInInspector] public GameObject OwnerObject;
+
+   [SerializeField] private float TimeOwnerObject;
+   private float currentOwner;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,19 +62,31 @@ public class BombScript : MonoBehaviour
         {
             currenTime = 0;
         }
+        
+        if (OwnerObject != null)
+        {
+            currentOwner += Time.deltaTime;
+
+            if (currentOwner >= TimeOwnerObject)
+            {
+                OwnerObject = null;
+            }
+        }
+        else
+        {
+            currentOwner = 0;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Runner") && Bomb.activeSelf)
         {
-            Debug.Log("entre");
             kart = other.GetComponent<KartControllerTest>();
 
             vel = kart.forwardSpeed;
 
             kart.forwardSpeed = 0;
-            Debug.Log(kart.forwardSpeed);
             
             Bomb.SetActive(false);
 

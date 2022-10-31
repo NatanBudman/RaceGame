@@ -59,9 +59,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c5808468dfbec4781a9dab65ee6cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VelSlowd: 25
+  VelSlowd: 35
   kart: {fileID: 0}
+  OwnerObject: {fileID: 0}
   TimeSlowed: 0.5
+  LifeTime: 3.5
+  TimeOwnerObject: 4
+  pincho: {fileID: 1197850275592551058}
 --- !u!54 &1197850275187664977
 Rigidbody:
   m_ObjectHideFlags: 0
