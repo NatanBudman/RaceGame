@@ -30,7 +30,12 @@ public class MissileScript : MonoBehaviour
             other.GetComponent<KartPowerPickUp>().Slowed(true,1.5f,0);
             this.gameObject.SetActive(false);
         }
-        else
+        else if (other.CompareTag("Item"))
+        {
+            other.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
+            
+        }else
         {
             this.gameObject.SetActive(false);
         }

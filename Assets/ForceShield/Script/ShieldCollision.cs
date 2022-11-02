@@ -81,7 +81,7 @@ public class ShieldCollision : MonoBehaviour
         if (other.CompareTag("Item"))
         {
             Debug.Log("shield entre");
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
             currentLifeTime = 0;
             this.gameObject.SetActive(false);
         }

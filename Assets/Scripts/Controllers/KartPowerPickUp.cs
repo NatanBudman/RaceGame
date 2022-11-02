@@ -8,7 +8,8 @@ public class KartPowerPickUp : MonoBehaviour
 {
     [SerializeField] private PowerRuletScript _ruletScript;
     [SerializeField] private KartControllerTest kart;
-
+    [SerializeField] private GameManager _manager;
+    private TypeRunners runner => _manager._PlayerStats;
     #region RaceData
 
         [Space] [Header("Race Parameter")] [Space]
@@ -54,6 +55,13 @@ public class KartPowerPickUp : MonoBehaviour
     public Transform BackPowerPos;
     public Transform ForwardPowerPos;
     private GameObject PowerHasPlayer => _ruletScript.PowerSelected;
+
+
+    [Header("Skill")] [Space] 
+    [SerializeField] private float SkillCoolwDown;
+
+    [SerializeField] private GameObject Wall;
+    private float _CurrentSkill;
     
     
     void Start()
@@ -65,6 +73,9 @@ public class KartPowerPickUp : MonoBehaviour
 
     private void Update()
     {
+        
+        _CurrentSkill += Time.deltaTime;
+        
         UpdateUI();
         if (isUseRulet)
         {
@@ -132,6 +143,15 @@ public class KartPowerPickUp : MonoBehaviour
         }
     }
 
+    public void UseSkill()
+    {
+        if (_CurrentSkill >= SkillCoolwDown)
+        {
+            SkillSelected();
+            _CurrentSkill = 0;
+        }
+    }
+
     public void UseTurbo(bool useTurbo)
     {
         isUseTurbo = useTurbo;
@@ -165,7 +185,7 @@ public class KartPowerPickUp : MonoBehaviour
 
         }
 // if a shield
-        if (PowerHasPlayer.GetComponent<ShieldCollision>())
+        if (PowerHasPlayer.GetComponent<WallScript>())
         {
             PowerHasPlayer.gameObject.SetActive(true);         
             return;
@@ -183,6 +203,21 @@ public class KartPowerPickUp : MonoBehaviour
         {
             GameObject pincho =Instantiate(PowerHasPlayer, BackPowerPos.position, Quaternion.identity);
             pincho.GetComponent<PinchosScript>().OwnerObject = this.gameObject;
+            return;
+        }
+    }
+
+    void SkillSelected()
+    {
+        if (runner.SpecialPower.GetComponent<ShieldCollision>())
+        {
+            Wall.SetActive(true);
+            return;
+        }
+
+        if (runner.SpecialPower.GetComponent<FakeSkill>())
+        {
+            Instantiate(runner.SpecialPower, BackPowerPos.position, Quaternion.identity);
             return;
         }
     }

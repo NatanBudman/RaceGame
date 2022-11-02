@@ -36,7 +36,6 @@ public class KartControllerTest : MonoBehaviour
     {
         sphereRb.transform.parent = null;
         _gameManager = FindObjectOfType<GameManager>();
-
     }
 
 

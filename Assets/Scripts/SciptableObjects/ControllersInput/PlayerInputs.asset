@@ -20,3 +20,4 @@ MonoBehaviour:
     PowerActive: 101
     JumpActive: 32
     TurboActive: 304
+    SkillActivate: 113

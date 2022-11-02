@@ -57,7 +57,8 @@ public class BoxScript : MonoBehaviour
         if (other.CompareTag("Runner") && Box.activeSelf == true)
         {
             Box.gameObject.SetActive(false);
-
+            
+            
             if (other.GetComponent<KartPowerPickUp>())
             {
                 // Player
