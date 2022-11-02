@@ -217,7 +217,9 @@ public class KartPowerPickUp : MonoBehaviour
 
         if (runner.SpecialPower.GetComponent<FakeSkill>())
         {
-            Instantiate(runner.SpecialPower, BackPowerPos.position, Quaternion.identity);
+           GameObject Fake = Instantiate(runner.SpecialPower, BackPowerPos.position, Quaternion.identity);
+           Fake.GetComponent<FakeSkill>().OwnerObject = this.gameObject;
+
             return;
         }
     }

@@ -93,7 +93,7 @@ public class FakeSkill : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Runner") && FakeObject[ObjectSelected].activeSelf)
+        if (other.CompareTag("Runner") && FakeObject[ObjectSelected].activeSelf && OwnerObject != other.gameObject)
         {
             kart = other.GetComponent<KartPowerPickUp>();
 

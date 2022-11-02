@@ -2093,7 +2093,7 @@ MonoBehaviour:
   BackPowerPos: {fileID: 1165074560}
   ForwardPowerPos: {fileID: 895855104}
   SkillCoolwDown: 5
-  Wall: {fileID: 0}
+  Wall: {fileID: 3199486060404134587}
 --- !u!114 &1695034465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2723,6 +2723,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d925c91c2cd9da646b051c251cc9834f, type: 3}
+--- !u!1 &3199486060404134587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3198675565327418975, guid: d925c91c2cd9da646b051c251cc9834f, type: 3}
+  m_PrefabInstance: {fileID: 3199486060404134586}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3200459760316941413
 PrefabInstance:
   m_ObjectHideFlags: 0
