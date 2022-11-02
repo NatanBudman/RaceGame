@@ -7,23 +7,23 @@ public class BombScript : MonoBehaviour
 {
     float vel;
 
-    private KartControllerTest kart;
+    private List<KartPowerPickUp>kart = new List<KartPowerPickUp>();
 
     [SerializeField] private GameObject Bomb; 
 
     [SerializeField] private float timeToReturnVel;
 
-   float currentRetunrVel;
-
    [SerializeField] private float TimeLife;
 
    private float currenTime;
    
-   [HideInInspector] public GameObject OwnerObject;
+   public GameObject OwnerObject;
 
    [SerializeField] private float TimeOwnerObject;
    private float currentOwner;
-    // Start is called before the first frame update
+   
+   [SerializeField] private BoxCollider bombCollider;
+
     void Start()
     {
         
@@ -32,23 +32,22 @@ public class BombScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (kart == null)
+        if (kart.Count > 0)
         {
-             currentRetunrVel = 0;
-        }
-        
-        if (kart != null)
-        {
-            currentRetunrVel += Time.deltaTime;
-            if (currentRetunrVel >= timeToReturnVel)
+            bombCollider.size = new Vector3(10, 10, 10);
+            for (int i = 0; i < kart.Count + 1 ; i++)
             {
-                kart.forwardSpeed = vel;
-
-                kart = null;
-                
+                if (i <= kart.Count - 1)
+                {
+                    bombCollider.size = new Vector3(10, 10, 10);
+                    kart[i].Slowed(true,timeToReturnVel,0);
+                }
+                else
+                {
+                    DisableBomb();
+                }
             }
         }
-
         if (Bomb.activeSelf)
         {
             currenTime += Time.deltaTime;
@@ -60,6 +59,7 @@ public class BombScript : MonoBehaviour
         }
         else
         {
+            bombCollider.size = new Vector3(1, 1, 1);
             currenTime = 0;
         }
         
@@ -80,17 +80,27 @@ public class BombScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Runner") && Bomb.activeSelf)
+        if (other.CompareTag("Runner") && Bomb.activeSelf && OwnerObject != other.gameObject)
         {
-            kart = other.GetComponent<KartControllerTest>();
+            bombCollider.size = new Vector3(10, 10, 10);
 
-            vel = kart.forwardSpeed;
-
-            kart.forwardSpeed = 0;
-            
-            Bomb.SetActive(false);
-
+            kart.Add(other.GetComponent<KartPowerPickUp>());
+            Debug.Log(kart.Count);
         }
     }
 
+    void DisableBomb()
+    {
+        Debug.Log("entre");
+        for (int i = 0; i < kart.Count; i++)
+        {
+            kart.RemoveAt(i);
+        }
+    }
+    
+
+    private void OnTriggerExit(Collider other)
+    {
+        Bomb.SetActive(false);
+    }
 }

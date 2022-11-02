@@ -22,6 +22,8 @@ public class InputManager : MonoBehaviour
       private KeyCode JumpActive => _controllers.JumpActive;
       private KeyCode TurboActive => _controllers.TurboActive;
 
+      private KeyCode SkillActivate => _controllers.SkillActivate;
+
     #endregion
     
   
@@ -40,7 +42,9 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetKey(TurboActive)) Car.UseTurbo(true);
         if (Input.GetKeyUp(TurboActive)) Car.UseTurbo(false);
-      
+
+        if (Input.GetKeyDown(SkillActivate)) Car.UseSkill();
         
+            
     }
 }

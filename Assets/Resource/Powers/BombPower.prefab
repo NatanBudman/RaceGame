@@ -1155,7 +1155,7 @@ GameObject:
   - component: {fileID: 8907708932175948426}
   m_Layer: 0
   m_Name: BombPower
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1188,10 +1188,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bomb: {fileID: 6581004440982056396}
-  timeToReturnVel: 0.5
+  timeToReturnVel: 1.2
   TimeLife: 5
   OwnerObject: {fileID: 0}
   TimeOwnerObject: 4
+  bombCollider: {fileID: 8907708932175948427}
 --- !u!65 &8907708932175948427
 BoxCollider:
   m_ObjectHideFlags: 0
