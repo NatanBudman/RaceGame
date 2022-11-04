@@ -41,6 +41,9 @@ public class GameRules : ScriptableObject
         get => _rules.PlayerCharacterStats;
         set => _rules.PlayerCharacterStats = value;
     }
+    
+    public int TimeToStart => _rules.TimeToStart;
+
 }
 [System.Serializable]
 public struct Rules
@@ -56,6 +59,8 @@ public struct Rules
     public int TurnsCount;
 
     public TypeRunners PlayerCharacterStats;
+
+    public int TimeToStart;
 
 
 }

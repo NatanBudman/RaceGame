@@ -59,9 +59,16 @@ public class PinchosScript : MonoBehaviour
     {
         if (other.CompareTag("Runner") && other.gameObject != OwnerObject && pincho.activeSelf)
         {
-            kart = other.GetComponent<KartPowerPickUp>();
-
-            kart.Slowed(true,TimeSlowed,VelSlowd);
+            if (other.GetComponent<KartPowerPickUp>())
+            {
+                 kart = other.GetComponent<KartPowerPickUp>();
+                
+                            kart.Slowed(true,TimeSlowed,VelSlowd);
+            }else if (other.GetComponent<IAController>())
+            {
+                other.GetComponent<IAController>().Slowed(true,TimeSlowed,VelSlowd);
+            }
+           
 
         }
     }
