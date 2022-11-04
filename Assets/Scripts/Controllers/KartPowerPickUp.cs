@@ -25,6 +25,8 @@ public class KartPowerPickUp : MonoBehaviour
     
     [SerializeField] private Text TotalPlayerCrossFinishLine;
 
+    [SerializeField] private int PositionInRace;
+
     [SerializeField] private Image TurboBar;
 
     public bool isUseRulet = false;
@@ -63,6 +65,7 @@ public class KartPowerPickUp : MonoBehaviour
     [SerializeField] private GameObject Wall;
     private float _CurrentSkill;
     
+    [HideInInspector]public int FinsihPosition;
     
     void Start()
     {
@@ -127,7 +130,7 @@ public class KartPowerPickUp : MonoBehaviour
 
     public void UpdateUI()
     {
-        TotalPlayerCrossFinishLine.text = "" + TotalCrossFinishLine + "\n" + " /" + "\n" + "   3";
+        TotalPlayerCrossFinishLine.text = "" + TotalCrossFinishLine + "\n" + " /" + "\n" + "   "+ _manager.TurnsCount;
         
         TurboBar.fillAmount = TurboAmount / _turboBarAmount;
     }
@@ -179,7 +182,7 @@ public class KartPowerPickUp : MonoBehaviour
         if (PowerHasPlayer.GetComponent<MissileScript>())
         {
             // reutilizando el slowed para un boost de velocidad
-           GameObject missil = Instantiate(PowerHasPlayer, ForwardPowerPos.position, Quaternion.identity);
+           GameObject missil = Instantiate(PowerHasPlayer, ForwardPowerPos.position, ForwardPowerPos.rotation);
            missil.GetComponent<MissileScript>().OwnerGameObject = this.gameObject;
             return;
 

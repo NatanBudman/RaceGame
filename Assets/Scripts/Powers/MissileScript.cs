@@ -39,5 +39,9 @@ public class MissileScript : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+        if (other.GetComponent<IAController>())
+        {
+            other.GetComponent<IAController>().Slowed(true,1.5f,0);
+        }
     }
 }

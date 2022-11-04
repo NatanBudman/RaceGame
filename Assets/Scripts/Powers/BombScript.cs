@@ -83,9 +83,15 @@ public class BombScript : MonoBehaviour
         if (other.CompareTag("Runner") && Bomb.activeSelf && OwnerObject != other.gameObject)
         {
             bombCollider.size = new Vector3(10, 10, 10);
-
-            kart.Add(other.GetComponent<KartPowerPickUp>());
-            Debug.Log(kart.Count);
+            if (other.GetComponent<KartPowerPickUp>())
+            {
+                kart.Add(other.GetComponent<KartPowerPickUp>());
+                            Debug.Log(kart.Count);
+            }else if (other.GetComponent<IAController>())
+            {
+                other.GetComponent<IAController>().Slowed(true,timeToReturnVel,0);
+            }
+            
         }
     }
 

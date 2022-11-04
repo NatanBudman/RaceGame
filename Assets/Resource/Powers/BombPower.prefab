@@ -1189,7 +1189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bomb: {fileID: 6581004440982056396}
   timeToReturnVel: 1.2
-  TimeLife: 5
+  TimeLife: 75
   OwnerObject: {fileID: 0}
   TimeOwnerObject: 4
   bombCollider: {fileID: 8907708932175948427}

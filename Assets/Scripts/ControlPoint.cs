@@ -11,12 +11,24 @@ public class ControlPoint : MonoBehaviour
     {
         if (other.CompareTag("Runner"))
         {
-            KartPowerPickUp ProvisionalCar = other.gameObject.GetComponent<KartPowerPickUp>();
-
-            if (ProvisionalCar.ControlPointsReached <= OrderPoint && ProvisionalCar.ControlPointsReached + 1 ==  OrderPoint)
+            if (other.GetComponent<KartPowerPickUp>())
             {
-                ProvisionalCar.ControlPointsReached = OrderPoint;
+                KartPowerPickUp ProvisionalCar = other.gameObject.GetComponent<KartPowerPickUp>();
+                
+                            if (ProvisionalCar.ControlPointsReached <= OrderPoint && ProvisionalCar.ControlPointsReached + 1 ==  OrderPoint)
+                            {
+                                ProvisionalCar.ControlPointsReached = OrderPoint;
+                            }
             }
+
+            if (other.GetComponent<IAController>())
+            {
+                IAController Ia = other.GetComponent<IAController>();
+
+                Ia._countPoint = OrderPoint;
+                
+            }
+            
             
         }
     }

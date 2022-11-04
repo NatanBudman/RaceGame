@@ -23,7 +23,8 @@ public class BoxScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _ruletScript = FindObjectOfType<PowerRuletScript>();
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
