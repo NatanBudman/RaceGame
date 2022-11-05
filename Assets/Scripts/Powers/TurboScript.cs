@@ -9,15 +9,30 @@ public class TurboScript : MonoBehaviour
     private float vel;
 
     private KartPowerPickUp kart;
+
+    private IAController _iaController;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Runner"))
         {
-            kart = other.GetComponent<KartPowerPickUp>();
+            if (other.GetComponent<KartPowerPickUp>())
+            {
+                kart = other.GetComponent<KartPowerPickUp>();
+                
+                            kart.GetTurbo(addTurbo);
+                
+                            kart = null;
+            }
 
-            kart.GetTurbo(addTurbo);
+            if (other.GetComponent<IAController>())
+            {
+                _iaController = other.GetComponent<IAController>();
+                
+                _iaController.AddTurbo(addTurbo);
+                _iaController = null;
+            }
 
-            kart = null;
+            
         }
     }
 }
