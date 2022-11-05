@@ -1680,7 +1680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc28c28f94f266c48970cf7bc262cd91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeLife: 5
+  TimeLife: 10
   currentLifeTime: 0
   RotateVel: 0
   _collisionTag:

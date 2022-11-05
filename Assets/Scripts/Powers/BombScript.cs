@@ -54,7 +54,7 @@ public class BombScript : MonoBehaviour
 
             if (currenTime >= TimeLife )
             {
-                Bomb.SetActive(false);
+                Destroy(this);
             }
         }
         else
@@ -86,10 +86,13 @@ public class BombScript : MonoBehaviour
             if (other.GetComponent<KartPowerPickUp>())
             {
                 kart.Add(other.GetComponent<KartPowerPickUp>());
-                            Debug.Log(kart.Count);
+                Destroy(this);
+                return;
             }else if (other.GetComponent<IAController>())
             {
                 other.GetComponent<IAController>().Slowed(true,timeToReturnVel,0);
+                Destroy(this);
+                return;
             }
             
         }
@@ -97,7 +100,6 @@ public class BombScript : MonoBehaviour
 
     void DisableBomb()
     {
-        Debug.Log("entre");
         for (int i = 0; i < kart.Count; i++)
         {
             kart.RemoveAt(i);

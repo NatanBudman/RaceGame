@@ -28,20 +28,24 @@ public class MissileScript : MonoBehaviour
         if (other.CompareTag("Runner") && OwnerGameObject != other.gameObject)
         {
             other.GetComponent<KartPowerPickUp>().Slowed(true,1.5f,0);
-            this.gameObject.SetActive(false);
+            Destroy(this);
         }
         else if (other.CompareTag("Item"))
         {
             other.gameObject.SetActive(false);
-            this.gameObject.SetActive(false);
+            Destroy(this);
             
-        }else
-        {
-            this.gameObject.SetActive(false);
         }
         if (other.GetComponent<IAController>())
         {
             other.GetComponent<IAController>().Slowed(true,1.5f,0);
+            Destroy(this);
+        }
+
+        if (other.gameObject)
+        {
+            Debug.Log("collisione misil");
+            Destroy(this);
         }
     }
 }

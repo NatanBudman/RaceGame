@@ -131,7 +131,6 @@ MonoBehaviour:
   _gameManager: {fileID: 0}
   RotateVelocity: 0.5
   Box: {fileID: 3200459758329717759}
-  RacePosition: 0
 --- !u!65 &3200459759129702237
 BoxCollider:
   m_ObjectHideFlags: 0

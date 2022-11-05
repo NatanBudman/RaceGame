@@ -76,7 +76,7 @@ public class KartPowerPickUp : MonoBehaviour
 
     private void Update()
     {
-        
+        TurboAmount = Mathf.Clamp(TurboAmount, 0, _turboBarAmount);
         _CurrentSkill += Time.deltaTime;
         
         UpdateUI();
@@ -96,7 +96,7 @@ public class KartPowerPickUp : MonoBehaviour
         {
             if (TurboAmount >= 1)
             {
-                TurboAmount -= 10 * Time.deltaTime;
+                TurboAmount -= 16 * Time.deltaTime;
 
                 kart.forwardSpeed = TurboForce;
             }
@@ -182,7 +182,7 @@ public class KartPowerPickUp : MonoBehaviour
         if (PowerHasPlayer.GetComponent<MissileScript>())
         {
             // reutilizando el slowed para un boost de velocidad
-           GameObject missil = Instantiate(PowerHasPlayer, ForwardPowerPos.position, ForwardPowerPos.rotation);
+           GameObject missil = Instantiate(PowerHasPlayer, ForwardPowerPos.position, Quaternion.Euler(0,180,0));
            missil.GetComponent<MissileScript>().OwnerGameObject = this.gameObject;
             return;
 
@@ -190,7 +190,7 @@ public class KartPowerPickUp : MonoBehaviour
 // if a shield
         if (PowerHasPlayer.GetComponent<WallScript>())
         {
-            PowerHasPlayer.gameObject.SetActive(true);         
+            GameObject Wall = Instantiate(PowerHasPlayer,BackPowerPos.position,Quaternion.Euler(0,-90,0));         
             return;
         }
 

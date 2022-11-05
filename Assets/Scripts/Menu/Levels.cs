@@ -71,6 +71,11 @@ public class Levels : MonoBehaviour
     [SerializeField] private Text TurnsCountText;
 
 
+    [Space] [Header("IA")] [Space] 
+    [SerializeField] private TypeRunners IAEasy;
+    [SerializeField] private TypeRunners IAMedium;
+    [SerializeField] private TypeRunners IAHard;
+
     #endregion
 
   
@@ -141,6 +146,18 @@ public class Levels : MonoBehaviour
             timeBoxText.text = "" + TimeBoxSpawn;
             _rules.TimeToSpawnBox = TimeBoxSpawn;
         }
+
+        if (IADificult == 0)
+        {
+            _rules.AIStats = IAEasy;
+        }else if (IADificult == 1)
+        {
+            _rules.AIStats = IAMedium;
+        }else if (IADificult == 2)
+        {
+            _rules.AIStats = IAHard;
+        }
+
 
     }
 

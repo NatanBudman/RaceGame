@@ -52,8 +52,7 @@ public class GameManager : MonoBehaviour
             GameObject IA = Instantiate(IAsSpawning[RamdomIASkin].gameObject, newPos,
                 StartPoint.rotation);
             
-            int RamdomStatsIA = Random.Range(0, IAStats.Length);
-            IA.GetComponent<IAController>().IAStats = IAStats[RamdomStatsIA];
+            IA.GetComponent<IAController>().IAStats = IAStats[_rules.DificultIA];
         }
     }
 

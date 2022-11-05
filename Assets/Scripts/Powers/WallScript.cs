@@ -10,6 +10,8 @@ public class WallScript : MonoBehaviour
     private float currenTime;
 
     [SerializeField] private GameObject Wall;
+
+    [SerializeField] private BoxCollider wallCollider;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,16 +24,18 @@ public class WallScript : MonoBehaviour
         if (Wall.activeSelf)
         {
             currenTime += Time.deltaTime;
+            wallCollider.enabled = true;
 
             if (currenTime >= TimeLife )
             {
-                Wall.SetActive(false);
+                Destroy(this);
             }
         }
         else
         {
-            currenTime = 0;
+            Destroy(this);
         }
+
     }
 
   
