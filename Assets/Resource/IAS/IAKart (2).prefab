@@ -93,7 +93,6 @@ GameObject:
   - component: {fileID: -3379286575639169751}
   - component: {fileID: 4712665594058861626}
   - component: {fileID: -5718873620849600913}
-  - component: {fileID: 873292273540251907}
   m_Layer: 0
   m_Name: IAKart (2)
   m_TagString: Runner
@@ -131,6 +130,7 @@ MonoBehaviour:
   IAStats: {fileID: 0}
   _IAmanager: {fileID: 0}
   PointPref: {fileID: 870764844442370359, guid: 726e6b59dc85eb44c9139ba95a1ad3af, type: 3}
+  points: []
   _countPoint: 0
   _RutePoint: 0
   agent: {fileID: 4712665594058861626}
@@ -139,6 +139,7 @@ MonoBehaviour:
   PositionInRace: 0
   FinsihPosition: 0
   TotalPointControl: 0
+  TurboAddVelocity: 0
 --- !u!195 &4712665594058861626
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -148,11 +149,11 @@ NavMeshAgent:
   m_GameObject: {fileID: 7240665173875804556}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.5
+  m_Radius: 1.6
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 6
   avoidancePriority: 50
-  m_AngularSpeed: 1000
+  m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -177,16 +178,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &873292273540251907
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7240665173875804556}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 1, z: 0}

@@ -20,7 +20,7 @@ public class IAController : MonoBehaviour
     #endregion
 
     [SerializeField] private GameObject PointPref;
-    private GameObject[] points;
+    [SerializeField]private GameObject[] points;
     public int _countPoint = 0;
     public int _RutePoint = 0;
 
@@ -39,8 +39,15 @@ public class IAController : MonoBehaviour
     private float SpeedSlow;
 
     [HideInInspector] public int TotalPointControl;
+
+    [SerializeField] private float TurboAddVelocity;
+    private float turboAmount;
+    
     void Start()
     {
+
+        TurboAddVelocity += Speed;
+        
         _IAmanager = FindObjectOfType<IAsManager>();
 
         _currentSpeed = Speed;
@@ -58,7 +65,10 @@ public class IAController : MonoBehaviour
         }
 
         TotalPointControl = points.Length - 1;
-        agent.speed = _currentSpeed;
+      //  agent.speed = _currentSpeed;
+        
+        agent.SetDestination(points[_RutePoint].transform.position);
+
     }
 
     public void ChangeRute()
@@ -72,18 +82,28 @@ public class IAController : MonoBehaviour
         }
     }
 
+    private int updateRUTE;
     // Update is called once per frame
     void Update()
     {
 // move to point
 
-
-        if (_RutePoint > points.Length)
+        if (turboAmount >= 1)
+        {
+            turboAmount -= 5 * Time.deltaTime;
+            _currentSpeed = TurboAddVelocity;
+        }
+        if (_RutePoint >= points.Length)
         {
             _RutePoint = 0;
         }
+
+        if (updateRUTE != _RutePoint)
+        {
+            agent.SetDestination(points[_RutePoint].transform.position);
+            updateRUTE = _RutePoint;
+        }
         
-        agent.SetDestination(points[_RutePoint].transform.position);
         
         if (Vector3.Distance(transform.position,points[_RutePoint].transform.position) <=  75)
         {
@@ -105,6 +125,11 @@ public class IAController : MonoBehaviour
             }
 
         }
+    }
+
+    public void AddTurbo(float addTurbo)
+    {
+        turboAmount += addTurbo;
     }
 
     public void Slowed(bool isSlow, float TimeSlow, float SpeedSlow)

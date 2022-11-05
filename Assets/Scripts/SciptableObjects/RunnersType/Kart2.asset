@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Kart2
   m_EditorClassIdentifier: 
   _stats:
-    velocity: 110
+    velocity: 140
     Acceleration: 1.5
     EnergyConsum: 0
-    TurnSpeed: 30
+    TurnSpeed: 65
     SpecialPower: {fileID: 0}
