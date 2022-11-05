@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e530855a5111a3d4db369529487beda8, type: 3}
-  m_Name: Kart4
+  m_Name: IAKARTMEDIUM
   m_EditorClassIdentifier: 
   _stats:
-    velocity: 195
-    Acceleration: 0.5
+    velocity: 75
+    Acceleration: 45
     EnergyConsum: 0
-    TurnSpeed: 15
+    TurnSpeed: 0
     SpecialPower: {fileID: 3198675565327418975, guid: d925c91c2cd9da646b051c251cc9834f, type: 3}

@@ -17,6 +17,8 @@ public class IAController : MonoBehaviour
 
     private float _currentSpeed;
     private float TurnSpeed => IAStats.TurnSpeed;
+
+    private float _acceleration => IAStats.Acceleration;
     #endregion
 
     [SerializeField] private GameObject PointPref;
@@ -65,7 +67,9 @@ public class IAController : MonoBehaviour
         }
 
         TotalPointControl = points.Length - 1;
-      //  agent.speed = _currentSpeed;
+        
+        agent.speed = _currentSpeed;
+        agent.acceleration = _acceleration;
         
         agent.SetDestination(points[_RutePoint].transform.position);
 
@@ -83,15 +87,21 @@ public class IAController : MonoBehaviour
     }
 
     private int updateRUTE;
+
+    private bool hasTurbo;
     // Update is called once per frame
     void Update()
     {
 // move to point
 
-        if (turboAmount >= 1)
+        if (turboAmount >= 1 && !isSlow)
         {
-            turboAmount -= 5 * Time.deltaTime;
-            _currentSpeed = TurboAddVelocity;
+            turboAmount -= 10 * Time.deltaTime;
+                agent.speed = TurboAddVelocity;
+        }else if (turboAmount <= 0 && !isSlow)
+        {
+            agent.speed = _currentSpeed;
+            turboAmount = Mathf.Clamp(turboAmount, 0, 100);
         }
         if (_RutePoint >= points.Length)
         {
@@ -105,7 +115,7 @@ public class IAController : MonoBehaviour
         }
         
         
-        if (Vector3.Distance(transform.position,points[_RutePoint].transform.position) <=  75)
+        if (Vector3.Distance(transform.position,points[_RutePoint].transform.position) <=  150)
         {
             _RutePoint += 1;
         }

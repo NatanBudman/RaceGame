@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: -3379286575639169751}
   - component: {fileID: 4712665594058861626}
   - component: {fileID: -5718873620849600913}
+  - component: {fileID: 9173749635265953147}
   m_Layer: 0
   m_Name: IAKart (2)
   m_TagString: Runner
@@ -139,7 +140,7 @@ MonoBehaviour:
   PositionInRace: 0
   FinsihPosition: 0
   TotalPointControl: 0
-  TurboAddVelocity: 0
+  TurboAddVelocity: 45
 --- !u!195 &4712665594058861626
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -151,7 +152,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 1.6
   m_Speed: 3.5
-  m_Acceleration: 6
+  m_Acceleration: 40
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -178,3 +179,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &9173749635265953147
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7240665173875804556}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.182438, y: 1.6322948, z: 3.0029063}
+  m_Center: {x: -0.0330925, y: 0.6769534, z: 0.41830373}

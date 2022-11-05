@@ -17,9 +17,6 @@ public class BoxScript : MonoBehaviour
      
     [SerializeField] private GameObject Box;
 
-    public int RacePosition;
-    
-   
     // Start is called before the first frame update
     void Start()
     {
