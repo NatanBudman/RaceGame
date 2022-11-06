@@ -7,8 +7,6 @@ public class BombScript : MonoBehaviour
 {
     float vel;
 
-    private List<KartPowerPickUp>kart = new List<KartPowerPickUp>();
-
     [SerializeField] private GameObject Bomb; 
 
     [SerializeField] private float timeToReturnVel;
@@ -21,33 +19,11 @@ public class BombScript : MonoBehaviour
 
    [SerializeField] private float TimeOwnerObject;
    private float currentOwner;
-   
-   [SerializeField] private BoxCollider bombCollider;
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        if (kart.Count > 0)
-        {
-            bombCollider.size = new Vector3(10, 10, 10);
-            for (int i = 0; i < kart.Count + 1 ; i++)
-            {
-                if (i <= kart.Count - 1)
-                {
-                    bombCollider.size = new Vector3(10, 10, 10);
-                    kart[i].Slowed(true,timeToReturnVel,0);
-                }
-                else
-                {
-                    DisableBomb();
-                }
-            }
-        }
+        
+        
         if (Bomb.activeSelf)
         {
             currenTime += Time.deltaTime;
@@ -59,7 +35,6 @@ public class BombScript : MonoBehaviour
         }
         else
         {
-            bombCollider.size = new Vector3(1, 1, 1);
             currenTime = 0;
         }
         
@@ -82,13 +57,13 @@ public class BombScript : MonoBehaviour
     {
         if (other.CompareTag("Runner") && Bomb.activeSelf && OwnerObject != other.gameObject)
         {
-            bombCollider.size = new Vector3(10, 10, 10);
             if (other.GetComponent<KartPowerPickUp>())
             {
-                kart.Add(other.GetComponent<KartPowerPickUp>());
+                other.GetComponent<KartPowerPickUp>().Slowed(true,timeToReturnVel,0);
                 Destroy(this);
                 return;
-            }else if (other.GetComponent<IAController>())
+            } 
+            if (other.GetComponent<IAController>() && Bomb.activeSelf && OwnerObject != other.gameObject)
             {
                 other.GetComponent<IAController>().Slowed(true,timeToReturnVel,0);
                 Destroy(this);
@@ -97,18 +72,5 @@ public class BombScript : MonoBehaviour
             
         }
     }
-
-    void DisableBomb()
-    {
-        for (int i = 0; i < kart.Count; i++)
-        {
-            kart.RemoveAt(i);
-        }
-    }
     
-
-    private void OnTriggerExit(Collider other)
-    {
-        Bomb.SetActive(false);
-    }
 }

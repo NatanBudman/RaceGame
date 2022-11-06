@@ -62,9 +62,10 @@ public class BoxScript : MonoBehaviour
                 // Player
                 other.GetComponent<KartPowerPickUp>().isUseRulet = true;
                 
-            }else if (other.GetComponent<KartPowerPickUp>() == null)
+            }else if (other.GetComponent<ItemScript>())
             {
                 // IA
+                other.GetComponent<ItemScript>().TakeObject();
             }
                 
             Box.SetActive(false);
