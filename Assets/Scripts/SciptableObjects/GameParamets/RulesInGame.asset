@@ -16,7 +16,8 @@ MonoBehaviour:
     DificultIA: 2
     TimeToSpawnBox: 7
     IsHasBalance: 1
-    IAsPlayers: 6
+    IAsPlayers: 7
     TurnsCount: 3
     PlayerCharacterStats: {fileID: 11400000, guid: af1812db408794947a6dd420619c2418, type: 2}
+    AIStats: {fileID: 0}
     TimeToStart: 4

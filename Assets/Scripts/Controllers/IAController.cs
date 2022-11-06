@@ -8,8 +8,9 @@ using Random = UnityEngine.Random;
 public class IAController : MonoBehaviour
 {
     public TypeRunners IAStats;
-
+    [SerializeField] private GameManager _manager;
     [SerializeField] private IAsManager _IAmanager;
+    [SerializeField] private ItemScript _itemScript;
 
     #region Stats
     
@@ -44,13 +45,23 @@ public class IAController : MonoBehaviour
 
     [SerializeField] private float TurboAddVelocity;
     private float turboAmount;
+
+    [Space] [Header("Pos Power/Skill")] [Space] 
     
+    [SerializeField] private Transform FrontPos;
+    [SerializeField] private Transform BackPos;
+    
+    
+    [Space] [Header("Raycast Power/Skill")] [Space] 
+    
+    [SerializeField] private float RaycastaDist;
     void Start()
     {
 
         TurboAddVelocity += Speed;
         
         _IAmanager = FindObjectOfType<IAsManager>();
+        _manager = FindObjectOfType<GameManager>();
 
         _currentSpeed = Speed;
         
@@ -81,7 +92,7 @@ public class IAController : MonoBehaviour
         {
             points[i].transform.position = _IAmanager.WarpPoints[i].transform.position;
             
-            points[i].transform.position = new Vector3(points[i].transform.position.x,
+            points[i].transform.position = new Vector3(points[i].transform.position.x+ Random.Range(0,15),
                 points[i].transform.position.y, points[i].transform.position.z);
         }
     }
@@ -93,7 +104,10 @@ public class IAController : MonoBehaviour
     void Update()
     {
 // move to point
-
+        if (_manager.CountStart >= 1)
+        {
+            Slowed(true,_manager.CountStart + 7,0);
+        }
         if (turboAmount >= 1 && !isSlow)
         {
             turboAmount -= 10 * Time.deltaTime;
@@ -115,7 +129,7 @@ public class IAController : MonoBehaviour
         }
         
         
-        if (Vector3.Distance(transform.position,points[_RutePoint].transform.position) <=  150)
+        if (Vector3.Distance(transform.position,points[_RutePoint].transform.position) <=  80)
         {
             _RutePoint += 1;
         }
@@ -135,6 +149,64 @@ public class IAController : MonoBehaviour
             }
 
         }
+
+        Debug.DrawRay(transform.position,transform.forward*RaycastaDist,Color.magenta);
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position,transform.forward,out hit,RaycastaDist,LayerMask.GetMask("Kart")))
+        {
+            isFrontItem = true;
+            UsePower();
+        }
+
+        if (Physics.Raycast(transform.position, -transform.forward, out hit, RaycastaDist, LayerMask.GetMask("Kart")))
+        {
+            isBackItem = true;
+            UsePower();
+        }
+    }
+
+    private bool isFrontItem;
+    private bool isFrontSkill;
+    private bool isBackItem;
+    private bool isBackSkill;
+    public void UsePower()
+    {
+        if (_itemScript.Power != null)
+        {
+            if (isFrontItem)
+            {
+                if (_itemScript.Power.GetComponent<BombScript>() ||_itemScript.Power.GetComponent<WallScript>() || _itemScript.Power.GetComponent<PinchosScript>())
+                {
+                
+                    Vector3 newQuaternion = new Vector3(transform.rotation.x,transform.rotation.y - 90,transform.rotation.z);
+                    GameObject item = Instantiate(_itemScript.Power, BackPos.position, Quaternion.Euler(newQuaternion));
+                    _itemScript.Power = null;
+                    isBackItem = true;
+                    return;
+                }
+            }
+
+            if (isBackItem)
+            {
+                if (_itemScript.Power.GetComponent<MissileScript>())
+                {
+                    Vector3 newQuaternion = new Vector3(transform.rotation.x,transform.rotation.y - 90,transform.rotation.z);
+                    GameObject item = Instantiate(_itemScript.Power, FrontPos.position, Quaternion.Euler(newQuaternion));
+                    _itemScript.Power = null;
+                    isFrontItem = false;
+                    return;
+                }
+            }
+            
+           
+        }
+      
+    }
+
+    public void UseSkill()
+    {
+        
     }
 
     public void AddTurbo(float addTurbo)

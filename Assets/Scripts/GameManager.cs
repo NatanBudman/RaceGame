@@ -24,10 +24,11 @@ public class GameManager : MonoBehaviour
     #endregion
 
     [SerializeField] private Transform StartPoint;
+    [HideInInspector] public bool isStartRace;
     public GameObject[] IAsSpawning;
     int pos = 0;
 
-    private float CountStart;
+    [HideInInspector] public float CountStart;
 
     [SerializeField] private Text StarCount;
 // Player Stats
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
                 StartPoint.rotation);
             
             IA.GetComponent<IAController>().IAStats = IAStats[_rules.DificultIA];
+            
         }
     }
 
@@ -63,9 +65,11 @@ public class GameManager : MonoBehaviour
         {
             CountStart -= 0.5f *Time.deltaTime;
             StarCount.text = "" + (int)CountStart;
+            isStartRace = false;
         }
         else
         {
+            isStartRace = true;
             StarCount.gameObject.SetActive(false);
         }
     }

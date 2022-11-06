@@ -72,14 +72,23 @@ public class KartPowerPickUp : MonoBehaviour
         kart.GetComponent<KartControllerTest>();
         
         BaseKarVel = kart.forwardSpeed;
+        
+
     }
 
     private void Update()
     {
+        if (_manager.CountStart >= 1)
+        {
+            Slowed(true,_manager.CountStart + 1,0);
+        }
         TurboAmount = Mathf.Clamp(TurboAmount, 0, _turboBarAmount);
         _CurrentSkill += Time.deltaTime;
         
         UpdateUI();
+        
+        
+        
         if (isUseRulet)
         {
             if (!isHasPower)
