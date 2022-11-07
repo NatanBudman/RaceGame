@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class KartPowerPickUp : MonoBehaviour
 {
     [SerializeField] private PowerRuletScript _ruletScript;
-    [SerializeField] private KartControllerTest kart;
+    [SerializeField] private KartControllerAlternative kart;
     [SerializeField] private GameManager _manager;
+    [SerializeField] private TurboSystem _turboSystem;
     private TypeRunners runner => _manager._PlayerStats;
     #region RaceData
 
@@ -36,16 +37,12 @@ public class KartPowerPickUp : MonoBehaviour
 
     #region KartStats
 
-    private float _turboBarAmount = 100;
 
-    public float TurboAmount = 0;
-    [SerializeField] private float TurboForce = 195;
     private float BaseKarVel;
     
     #endregion
 
 
-    private bool isUseTurbo;
     private bool isSlowed;
 
     private float TimeSlowed;
@@ -69,10 +66,8 @@ public class KartPowerPickUp : MonoBehaviour
     
     void Start()
     {
-        kart.GetComponent<KartControllerTest>();
         
-        BaseKarVel = kart.forwardSpeed;
-        
+        BaseKarVel = kart.maxSpeed;
 
     }
 
@@ -82,7 +77,6 @@ public class KartPowerPickUp : MonoBehaviour
         {
             Slowed(true,_manager.CountStart + 1,0);
         }
-        TurboAmount = Mathf.Clamp(TurboAmount, 0, _turboBarAmount);
         _CurrentSkill += Time.deltaTime;
         
         UpdateUI();
@@ -100,22 +94,7 @@ public class KartPowerPickUp : MonoBehaviour
 
             isUseRulet = false;
         }
-
-        if (isUseTurbo)
-        {
-            if (TurboAmount >= 1)
-            {
-                TurboAmount -= 16 * Time.deltaTime;
-
-                kart.forwardSpeed = TurboForce;
-            }
-            else
-            {
-                isUseTurbo = false;
-                kart.forwardSpeed = BaseKarVel;
-
-            }
-        }
+        
 
         if (isSlowed)
         {
@@ -123,11 +102,11 @@ public class KartPowerPickUp : MonoBehaviour
             if (TimeSlowed > 0f)
             {
                 TimeSlowed -= Time.deltaTime;
-                kart.forwardSpeed = VelSlowed;
+                kart.currentSpeed = VelSlowed;
             }
             else
             {
-                kart.forwardSpeed = BaseKarVel;
+                kart.currentSpeed = BaseKarVel;
 
                 isSlowed = false;
             }
@@ -141,7 +120,7 @@ public class KartPowerPickUp : MonoBehaviour
     {
         TotalPlayerCrossFinishLine.text = "" + TotalCrossFinishLine + "\n" + " /" + "\n" + "   "+ _manager.TurnsCount;
         
-        TurboBar.fillAmount = TurboAmount / _turboBarAmount;
+        TurboBar.fillAmount = _turboSystem._currentTurboAmount / _turboSystem.TotalTurboAmount;
     }
     
     
@@ -162,21 +141,6 @@ public class KartPowerPickUp : MonoBehaviour
             SkillSelected();
             _CurrentSkill = 0;
         }
-    }
-
-    public void UseTurbo(bool useTurbo)
-    {
-        isUseTurbo = useTurbo;
-        if (!isUseTurbo)
-        {
-            kart.forwardSpeed = BaseKarVel;
-
-        }
-    }
-
-    public void GetTurbo(float amount)
-    {
-        TurboAmount += amount;
     }
 
     public void Slowed(bool isSlowed, float TimeSlow, float velocySlow)
@@ -231,7 +195,6 @@ public class KartPowerPickUp : MonoBehaviour
         {
            GameObject Fake = Instantiate(runner.SpecialPower, BackPowerPos.position, Quaternion.identity);
            Fake.GetComponent<FakeSkill>().OwnerObject = this.gameObject;
-
             return;
         }
     }

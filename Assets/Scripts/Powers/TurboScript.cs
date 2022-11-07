@@ -15,24 +15,11 @@ public class TurboScript : MonoBehaviour
     {
         if (other.CompareTag("Runner"))
         {
-            if (other.GetComponent<KartPowerPickUp>())
+            if (other.GetComponent<TurboSystem>())
             {
-                kart = other.GetComponent<KartPowerPickUp>();
-                
-                            kart.GetTurbo(addTurbo);
-                
-                            kart = null;
-            }
-
-            if (other.GetComponent<IAController>())
-            {
-                _iaController = other.GetComponent<IAController>();
-                
-                _iaController.AddTurbo(addTurbo);
-                _iaController = null;
-            }
-
-            
+                other.GetComponent<TurboSystem>().AddTurbo(addTurbo);
+                return;
+            }            
         }
     }
 }
