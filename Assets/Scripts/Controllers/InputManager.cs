@@ -6,6 +6,8 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] private KartPowerPickUp Car;
     [SerializeField] private ControllersScriptableObject _controllers;
+    [SerializeField] private TurboSystem _turboSystem;
+    [SerializeField] private KartControllerAlternative _kartController;
 
     #region MoveInputs
 
@@ -26,22 +28,23 @@ public class InputManager : MonoBehaviour
 
     #endregion
     
-  
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(PowerActive)) Car.UsePower();
 
-        if (Input.GetKey(TurboActive)) Car.UseTurbo(true);
-        if (Input.GetKeyUp(TurboActive)) Car.UseTurbo(false);
+        if (Input.GetKey(TurboActive))
+        {
+            _kartController.maxSpeed = _turboSystem.UseTurbo(true,_kartController.maxSpeed);
+        }
+
+        if (Input.GetKeyUp(TurboActive))
+        {
+            _kartController.maxSpeed = _turboSystem.UseTurbo(false,_kartController.maxSpeed);
+        }
+
+       
 
         if (Input.GetKeyDown(SkillActivate)) Car.UseSkill();
         

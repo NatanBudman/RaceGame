@@ -11,6 +11,7 @@ public class IAController : MonoBehaviour
     [SerializeField] private GameManager _manager;
     [SerializeField] private IAsManager _IAmanager;
     [SerializeField] private ItemScript _itemScript;
+    [SerializeField] private TurboSystem turboSystem;
 
     #region Stats
     
@@ -43,8 +44,6 @@ public class IAController : MonoBehaviour
 
     [HideInInspector] public int TotalPointControl;
 
-    [SerializeField] private float TurboAddVelocity;
-    private float turboAmount;
 
     [Space] [Header("Pos Power/Skill")] [Space] 
     
@@ -58,8 +57,6 @@ public class IAController : MonoBehaviour
     void Start()
     {
 
-        TurboAddVelocity += Speed;
-        
         _IAmanager = FindObjectOfType<IAsManager>();
         _manager = FindObjectOfType<GameManager>();
 
@@ -103,20 +100,23 @@ public class IAController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (turboSystem._currentTurboAmount >= 1)
+        {
+           agent.speed = turboSystem.UseTurbo(true,agent.speed);
+        }
+        else
+        {
+            agent.speed = turboSystem.UseTurbo(false,agent.speed);
+        }
+
+
 // move to point
         if (_manager.CountStart >= 1)
         {
             Slowed(true,_manager.CountStart + 7,0);
         }
-        if (turboAmount >= 1 && !isSlow)
-        {
-            turboAmount -= 10 * Time.deltaTime;
-                agent.speed = TurboAddVelocity;
-        }else if (turboAmount <= 0 && !isSlow)
-        {
-            agent.speed = _currentSpeed;
-            turboAmount = Mathf.Clamp(turboAmount, 0, 100);
-        }
+        
         if (_RutePoint >= points.Length)
         {
             _RutePoint = 0;
@@ -208,12 +208,7 @@ public class IAController : MonoBehaviour
     {
         
     }
-
-    public void AddTurbo(float addTurbo)
-    {
-        turboAmount += addTurbo;
-    }
-
+    
     public void Slowed(bool isSlow, float TimeSlow, float SpeedSlow)
     {
         this.isSlow = isSlow;

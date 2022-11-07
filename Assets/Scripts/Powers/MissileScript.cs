@@ -29,23 +29,27 @@ public class MissileScript : MonoBehaviour
         {
             other.GetComponent<KartPowerPickUp>().Slowed(true,1.5f,0);
             Destroy(this);
+            return;
         }
         else if (other.CompareTag("Item"))
         {
             other.gameObject.SetActive(false);
             Destroy(this);
-            
+            return;
+
         }
         if (other.GetComponent<IAController>())
         {
             other.GetComponent<IAController>().Slowed(true,1.5f,0);
             Destroy(this);
+            return;
+
         }
 
         if (other.gameObject)
         {
-            Debug.Log("collisione misil");
             Destroy(this);
+            return;
         }
     }
 }

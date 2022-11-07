@@ -8,7 +8,7 @@ public class KartControllerAlternative : MonoBehaviour
     
     [SerializeField] private float steerDirection;
     private float driftTime;
-    private float currentSpeed = 0;
+    [HideInInspector] public float currentSpeed = 0;
     private float realSpeed;//not the applied speed
     [SerializeField] private float steerAmount;
     

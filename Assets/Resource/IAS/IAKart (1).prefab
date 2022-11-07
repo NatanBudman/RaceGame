@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2397223146675378483}
   - component: {fileID: 7453902006122614140}
   - component: {fileID: -3984503080455088734}
+  - component: {fileID: 4813360399632264906}
   m_Layer: 6
   m_Name: IAKart (1)
   m_TagString: Runner
@@ -53,6 +54,7 @@ MonoBehaviour:
   _manager: {fileID: 0}
   _IAmanager: {fileID: 0}
   _itemScript: {fileID: -3984503080455088734}
+  turboSystem: {fileID: 4813360399632264906}
   PointPref: {fileID: 870764844442370359, guid: 726e6b59dc85eb44c9139ba95a1ad3af, type: 3}
   points: []
   _countPoint: 0
@@ -63,7 +65,6 @@ MonoBehaviour:
   PositionInRace: 0
   FinsihPosition: 0
   TotalPointControl: 0
-  TurboAddVelocity: 45
   FrontPos: {fileID: 136984041127102924}
   BackPos: {fileID: 4429728396415688784}
   RaycastaDist: 40
@@ -121,6 +122,23 @@ MonoBehaviour:
   - {fileID: 3150895397538879250, guid: 7eafb2b3560dca946bbeb20fd008f0a1, type: 3}
   - {fileID: 1197850275187664981, guid: 8e46d7c750a56b14681315ba65596155, type: 3}
   - {fileID: 6548639979703653681, guid: f47aa58bb76bc5b47b77c471ee302bc5, type: 3}
+--- !u!114 &4813360399632264906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169749461560916989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bc848e84a1a58540b2ee6ae31a6fe6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AddForce: 60
+  KartVelocity: 0
+  TotalTurboAmount: 100
+  _currentTurboAmount: 0
+  turboChargePerSecond: 10
 --- !u!1 &2593948306962678384
 GameObject:
   m_ObjectHideFlags: 0
