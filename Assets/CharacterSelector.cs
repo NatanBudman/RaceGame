@@ -80,7 +80,7 @@ public class CharacterSelector : MonoBehaviour
         BarSteering.gameObject.SetActive(true);
                     
         BarAcce.fillAmount = Acceleration / 2;
-        BarVel.fillAmount = Vel / 130;
+        BarVel.fillAmount = Vel / 100;
         BarSteering.fillAmount = Steering / 50;
     }
 

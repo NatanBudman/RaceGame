@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Kart3
   m_EditorClassIdentifier: 
   _stats:
-    velocity: 190
+    velocity: 70
     Acceleration: 1
     EnergyConsum: 0
     TurnSpeed: 20

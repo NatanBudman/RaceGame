@@ -6,6 +6,8 @@ using UnityEngine;
 public class KartControllerAlternative : MonoBehaviour
 {
     [SerializeField] private InputManager _inputManager;
+    [SerializeField] private GameManager _gameManager;
+    [SerializeField] private TypeRunners _runners => _gameManager._PlayerStats;
     
     [SerializeField] private float steerDirection;
     private float driftTime;
@@ -29,6 +31,9 @@ public class KartControllerAlternative : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        // stats
+        maxSpeed = _runners.velocity;
+        
     }
 
 
