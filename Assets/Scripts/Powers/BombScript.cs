@@ -60,13 +60,13 @@ public class BombScript : MonoBehaviour
             if (other.GetComponent<KartPowerPickUp>())
             {
                 other.GetComponent<KartPowerPickUp>().Slowed(true,timeToReturnVel,0);
-                Destroy(this);
+                Destroy(this.gameObject);
                 return;
             } 
             if (other.GetComponent<IAController>() && Bomb.activeSelf && OwnerObject != other.gameObject)
             {
                 other.GetComponent<IAController>().Slowed(true,timeToReturnVel,0);
-                Destroy(this);
+                Destroy(this.gameObject);
                 return;
             }
             

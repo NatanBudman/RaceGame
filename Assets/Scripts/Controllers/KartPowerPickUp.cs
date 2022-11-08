@@ -162,7 +162,7 @@ public class KartPowerPickUp : MonoBehaviour
         if (PowerHasPlayer.GetComponent<MissileScript>())
         {
             // reutilizando el slowed para un boost de velocidad
-           GameObject missil = Instantiate(PowerHasPlayer, ForwardPowerPos.position, Quaternion.Euler(0,180,0));
+           GameObject missil = Instantiate(PowerHasPlayer, ForwardPowerPos.position, transform.rotation);
            missil.GetComponent<MissileScript>().OwnerGameObject = this.gameObject;
             return;
 
@@ -170,7 +170,7 @@ public class KartPowerPickUp : MonoBehaviour
 // if a shield
         if (PowerHasPlayer.GetComponent<WallScript>())
         {
-            GameObject Wall = Instantiate(PowerHasPlayer,BackPowerPos.position,Quaternion.Euler(0,-90,0));         
+            GameObject Wall = Instantiate(PowerHasPlayer,BackPowerPos.position,transform.rotation);         
             return;
         }
 
