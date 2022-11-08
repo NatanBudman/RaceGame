@@ -12,6 +12,7 @@ public class IAController : MonoBehaviour
     [SerializeField] private IAsManager _IAmanager;
     [SerializeField] private ItemScript _itemScript;
     [SerializeField] private TurboSystem turboSystem;
+    [SerializeField] private PositionRace _positionRace;
 
     #region Stats
     
@@ -100,7 +101,9 @@ public class IAController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.R))
+        _positionRace.ControlPoints = _countPoint;
+        
         if (turboSystem._currentTurboAmount >= 1)
         {
            agent.speed = turboSystem.UseTurbo(true,agent.speed);

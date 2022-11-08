@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    [SerializeField] private PositionRace player;
     [SerializeField] private Transform StartPoint;
     [HideInInspector] public bool isStartRace;
     public GameObject[] IAsSpawning;
@@ -38,11 +39,17 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public int Position;
     [HideInInspector]public int FinsihPosition;
+
+     public PositionRace[] PlayersPositions;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         CountStart = StartCount;
-        
+
+        PlayersPositions = new PositionRace[IAsPlayers + 1];
+
+        PlayersPositions[0] = player;
+
         for (int i = 0; i < IAsPlayers; i++)
         {
             int RamdomIASkin = Random.Range(0, IAsSpawning.Length);
@@ -54,7 +61,9 @@ public class GameManager : MonoBehaviour
                 StartPoint.rotation);
             
             IA.GetComponent<IAController>().IAStats = IAStats[_rules.DificultIA];
-            
+            IA.gameObject.name = "Bot " + i;
+            PlayersPositions[i + 1] = IA.GetComponent<PositionRace>();
+
         }
     }
 

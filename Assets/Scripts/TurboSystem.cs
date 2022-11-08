@@ -30,7 +30,6 @@ public class TurboSystem : MonoBehaviour
             _currentTurboAmount -= turboChargePerSecond * Time.deltaTime;
             VelocityModificated = AddForce;
             
-            Debug.Log(VelocityModificated);
 
         }
         else if (_currentTurboAmount <= 0 || !isUseTurbo)

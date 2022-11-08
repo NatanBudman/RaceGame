@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 9173749635265953147}
   - component: {fileID: -2643347122054733649}
   - component: {fileID: -3081837139374778771}
+  - component: {fileID: 8003576548871462251}
   m_Layer: 6
   m_Name: IAKart (2)
   m_TagString: Runner
@@ -197,6 +198,7 @@ MonoBehaviour:
   _IAmanager: {fileID: 0}
   _itemScript: {fileID: -2643347122054733649}
   turboSystem: {fileID: -3081837139374778771}
+  _positionRace: {fileID: 8003576548871462251}
   PointPref: {fileID: 870764844442370359, guid: 726e6b59dc85eb44c9139ba95a1ad3af, type: 3}
   points: []
   _countPoint: 0
@@ -297,3 +299,18 @@ MonoBehaviour:
   TotalTurboAmount: 100
   _currentTurboAmount: 0
   turboChargePerSecond: 10
+--- !u!114 &8003576548871462251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7240665173875804556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f27fde81a5c0cb4298a4b073acda5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RacePosition: 0
+  ControlPoints: 0
+  isChangePosition: 0
