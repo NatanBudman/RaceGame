@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     #region Game_Rules
 
        [SerializeField] private GameRules _rules;
+       [SerializeField] private RacePositionManager racePositionManager;
     
         public int DificultIA => _rules.DificultIA;
     
@@ -37,9 +38,9 @@ public class GameManager : MonoBehaviour
 
     public TypeRunners[] IAStats;
 
-    [HideInInspector] public int Position;
-    [HideInInspector]public int FinsihPosition;
+    [HideInInspector]public bool FinsihRace;
 
+    [SerializeField] private GameObject VictoryPanel;
      public PositionRace[] PlayersPositions;
     // Start is called before the first frame update
     void Awake()
@@ -80,6 +81,14 @@ public class GameManager : MonoBehaviour
         {
             isStartRace = true;
             StarCount.gameObject.SetActive(false);
+        }
+
+        if (player.GetComponent<KartPowerPickUp>().TotalCrossFinishLine > TurnsCount)
+        {
+            FinsihRace = true;
+            VictoryPanel.SetActive(true);
+            racePositionManager.SlotsPanel.transform.position = VictoryPanel.transform.position;
+            GameManager.IsGamePuase(true);
         }
     }
 

@@ -98,10 +98,16 @@ public class IAController : MonoBehaviour
     private int updateRUTE;
 
     private bool hasTurbo;
+
+    private void FixedUpdate()
+    {
+        _positionRace.ControlPoints = _countPoint;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        
         _positionRace.ControlPoints = _countPoint;
         
         if (turboSystem._currentTurboAmount >= 1)
