@@ -9,6 +9,11 @@ public class MissileScript : MonoBehaviour
     public GameObject OwnerGameObject;
 
     [SerializeField] private float vel;
+
+    [SerializeField] private float TimeLife;
+    private float currentLifeTime;
+
+    [SerializeField] private Rigidbody _rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +23,14 @@ public class MissileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y,
-            transform.position.z + vel * Time.deltaTime);
+        currentLifeTime += Time.deltaTime;
+
+        if (currentLifeTime >= TimeLife)
+        {
+            Destroy(this.gameObject);
+        }
+        
+        transform.position += transform.forward * vel * Time.deltaTime;
         
     }
 
@@ -28,28 +39,23 @@ public class MissileScript : MonoBehaviour
         if (other.CompareTag("Runner") && OwnerGameObject != other.gameObject)
         {
             other.GetComponent<KartPowerPickUp>().Slowed(true,1.5f,0);
-            Destroy(this);
+            Destroy(this.gameObject);
             return;
         }
         else if (other.CompareTag("Item"))
         {
-            other.gameObject.SetActive(false);
-            Destroy(this);
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
             return;
 
         }
         if (other.GetComponent<IAController>())
         {
             other.GetComponent<IAController>().Slowed(true,1.5f,0);
-            Destroy(this);
+            Destroy(this.gameObject);
             return;
 
         }
-
-        if (other.gameObject)
-        {
-            Destroy(this);
-            return;
-        }
+        
     }
 }
