@@ -22,8 +22,9 @@ public class KartControllerAlternative : MonoBehaviour
 
     public bool isSliding = false;
     private bool isGrounded;
-    
-    
+
+    public AudioSource fullSpeed;
+
     [SerializeField] private Rigidbody rb;
     
     private void Start()
@@ -47,6 +48,7 @@ public class KartControllerAlternative : MonoBehaviour
 
         if (Input.GetKey(_inputManager.MovForward))
         {
+            
             currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * 0.5f); //lerp=(el valor de interpolacion, el valor al que quiero llegar, velocidad de interpolacion/aceleracion)
         }
         else if (Input.GetKey(_inputManager.MovReverse))

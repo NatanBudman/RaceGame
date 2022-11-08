@@ -9,7 +9,8 @@ public class MenuScript : MonoBehaviour
     [SerializeField] private GameObject Levels;
     [SerializeField] private GameObject Characters;
 
-
+    public AudioSource confirm;
+    public AudioSource back;
 
     #region KeysPanels
 
@@ -59,20 +60,24 @@ public class MenuScript : MonoBehaviour
 
     public void AdventureButton()
     {
+        confirm.Play();
         ActivePanel(CharacterKey);
     }
 
     public void SettngButton()
     {
+        confirm.Play();
         ActivePanel(SettingKey);
     }
     public void ExitButton()
     {
+        back.Play();
         Application.Quit();
     }
 
     public void Return()
     {
+        back.Play();
         ActivePanel(MenuKey);
     }
 

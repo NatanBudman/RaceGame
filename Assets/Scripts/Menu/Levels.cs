@@ -9,7 +9,10 @@ public class Levels : MonoBehaviour
 {
     [SerializeField] private GameRules _rules;
     [Space]
-    
+
+    public AudioSource play;
+    public AudioSource error;
+
     #region Maps
         [Header("MAP")]
     public GameObject PanelsMaps;
@@ -212,10 +215,12 @@ public class Levels : MonoBehaviour
         if (MapSelected != String.Empty)
         {
             SceneManager.LoadScene(MapSelected);
+            play.Play();
         }
         else
         {
             Debug.Log("Scene dont exist");
+            error.Play();
         }
     }
 
@@ -236,7 +241,7 @@ public class Levels : MonoBehaviour
     }
     public void ButtonTurns(bool SumaVueltas)
     {
-        
+
         if (SumaVueltas)
         {
             TurnCount++;
