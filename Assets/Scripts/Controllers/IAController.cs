@@ -109,6 +109,7 @@ public class IAController : MonoBehaviour
     {
         
         _positionRace.ControlPoints = _countPoint;
+        _positionRace.MetaCruzada = TotalPlayerCrossFinishLine;
         
         if (turboSystem._currentTurboAmount >= 1)
         {

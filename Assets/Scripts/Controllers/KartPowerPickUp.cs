@@ -70,13 +70,13 @@ public class KartPowerPickUp : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
-    {
-        _positionRace.ControlPoints = ControlPointsReached;
-    }
+   
 
     private void Update()
     {
+        _positionRace.ControlPoints = ControlPointsReached;
+        _positionRace.MetaCruzada = TotalCrossFinishLine;
+        
         if (_manager.CountStart >= 1)
         {
             Slowed(true,_manager.CountStart + 1,0);

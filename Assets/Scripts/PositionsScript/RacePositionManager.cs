@@ -53,7 +53,6 @@ public class RacePositionManager : MonoBehaviour
             
             for (int i = 0; i < _gameManager.PlayersPositions.Length; i++)
             {
-                Debug.Log("entre a la cola");
                 PositionTable[i] = SlotsPanel.transform.GetChild(i).gameObject.GetComponent<Text>();
                 PositionTable[i].text = $"Pos.{v} "+ Pila.TopPlayer().RacePosition + Pila.TopPlayer().name;
                 v--;

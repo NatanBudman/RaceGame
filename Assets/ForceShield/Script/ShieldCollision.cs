@@ -10,6 +10,8 @@ public class ShieldCollision : MonoBehaviour
     
     [SerializeField] private float RotateVel;
 
+    [SerializeField] private GameObject ownerObGameObject;
+
     [SerializeField] string[] _collisionTag;
     float hitTime;
     Material mat;
@@ -36,7 +38,7 @@ public class ShieldCollision : MonoBehaviour
             }
 
             transform.Rotate(transform.rotation.x + RotateVel * Time.deltaTime,transform.rotation.y+ RotateVel * Time.deltaTime,transform.rotation.z+ RotateVel * Time.deltaTime);
-
+            transform.position = ownerObGameObject.transform.position;
         }
         else
         {
