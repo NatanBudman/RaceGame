@@ -9,7 +9,9 @@ public class Levels : MonoBehaviour
 {
     [SerializeField] private GameRules _rules;
     [Space]
-    
+
+    public AudioSource play;
+
     #region Maps
         [Header("MAP")]
     public GameObject PanelsMaps;
@@ -207,6 +209,8 @@ public class Levels : MonoBehaviour
 
     public void PlayButton()
     {
+        play.Play();
+
         string MapSelected = $"Scenes/{SceneName[DropMapsName.value]}";
         
         if (MapSelected != String.Empty)

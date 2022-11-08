@@ -17,6 +17,16 @@ public class CharacterSelector : MonoBehaviour
     private bool isSelectedKart = false;
     private bool isSelecteCharacter = false;
 
+    public AudioSource confirm;
+    public AudioSource back;
+    public AudioSource play;
+    public AudioSource error;
+    public AudioSource cursor;
+    public AudioSource alfreditoSelected;
+    public AudioSource barbakahnSelected;
+
+    public string characterSelected;
+
     #region CharactersStats
 [Header("Stats")]
 [Space]
@@ -86,6 +96,7 @@ public class CharacterSelector : MonoBehaviour
 
     public void Kart1Selected()
     {
+        cursor.Play();
         _rules.PlayerCharacterStats = Kart1;
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = GaspiButtonPos.transform.position;
@@ -96,6 +107,7 @@ public class CharacterSelector : MonoBehaviour
 
     public void Kart2Seleced()
     {
+        cursor.Play();
         _rules.PlayerCharacterStats = Kart4;
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = AlfreditoButtonPos.transform.position;
@@ -107,6 +119,7 @@ public class CharacterSelector : MonoBehaviour
 
     public void Kart3Seleced()
     {
+        cursor.Play();
         _rules.PlayerCharacterStats = Kart2;
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = MaritoButtonPos.transform.position;
@@ -118,6 +131,7 @@ public class CharacterSelector : MonoBehaviour
 
     public void Kart4Seleced()
     {
+        cursor.Play();
         _rules.PlayerCharacterStats = Kart3;
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = BarbaKhanButtonPos.transform.position;
@@ -129,15 +143,18 @@ public class CharacterSelector : MonoBehaviour
 
     public void GaspiSelected()
     {
+        cursor.Play();
         CharactersStatsUI("Gaspi", "Object Theft");
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = GaspiButtonPos.transform.position;
         _rules.PlayerCharacterStats.SpecialPower = ObjectThieft;
         isSelecteCharacter = true;
 
+        characterSelected = "Gaspi";
     }
     public void MaritoSelected()
     {
+        cursor.Play();
         CharactersStatsUI("Marito", "Double Object");
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = MaritoButtonPos.transform.position;
@@ -145,10 +162,11 @@ public class CharacterSelector : MonoBehaviour
 
         isSelecteCharacter = true;
 
-
+        characterSelected = "Marito";
     }
     public void BarbaSelected()
     {
+        cursor.Play();
         CharactersStatsUI("BarbaKhan", "Fake Object");
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = BarbaKhanButtonPos.transform.position;
@@ -156,10 +174,11 @@ public class CharacterSelector : MonoBehaviour
 
         isSelecteCharacter = true;
 
-
+        characterSelected = "Barbakahn";
     }
     public void AlfreditoSelected()
     {
+        cursor.Play();
         CharactersStatsUI("Alfredito", "Force Field");
         PanelSelector.gameObject.SetActive(true);
         PanelSelector.transform.position = AlfreditoButtonPos.transform.position;
@@ -167,19 +186,21 @@ public class CharacterSelector : MonoBehaviour
 
         isSelecteCharacter = true;
 
-
+        characterSelected = "Alfredito";
     }
 
     public void LevelPanelEnable()
     {
         if (isSelectedKart)
         {
+            confirm.Play();
             CharacterPanel.gameObject.SetActive(true);
             PanelSelector.gameObject.SetActive(false);
 
         }
         else
         {
+            error.Play();
             text.color = new Color(255, 0, 0);
             text.text = "Choose Kart";
         }
@@ -190,6 +211,18 @@ public class CharacterSelector : MonoBehaviour
         }
         if (isSelecteCharacter && isSelectedKart)
         {
+            if (characterSelected=="Alfredito")
+            {
+                confirm.Play();
+                alfreditoSelected.Play();
+            }
+
+            if (characterSelected == "Barbakahn")
+            {
+                confirm.Play();
+                barbakahnSelected.Play();
+            }
+
             text.text = "";
             Levelpanel.SetActive(true);
             this.gameObject.SetActive(false);
@@ -200,6 +233,7 @@ public class CharacterSelector : MonoBehaviour
 
     public void Return()
     {
+        back.Play();
         if (!isSelectedKart)
         {
             this.gameObject.SetActive(false);
