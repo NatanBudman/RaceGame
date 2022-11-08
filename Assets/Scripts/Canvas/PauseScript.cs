@@ -56,4 +56,10 @@ public class PauseScript : MonoBehaviour
     {
         PauseMode(false);
     }
+
+    public void ResetLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+    }
 }

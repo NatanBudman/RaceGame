@@ -70,6 +70,11 @@ public class KartPowerPickUp : MonoBehaviour
 
     }
 
+    private void FixedUpdate()
+    {
+        _positionRace.ControlPoints = ControlPointsReached;
+    }
+
     private void Update()
     {
         if (_manager.CountStart >= 1)
@@ -80,15 +85,6 @@ public class KartPowerPickUp : MonoBehaviour
         
         UpdateUI();
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Debug.Log("entre");
-            _positionRace.ControlPoints = ControlPointsReached;
-        }
-
-
-       
-        
         if (isUseRulet)
         {
             if (!isHasPower)

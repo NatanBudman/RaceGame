@@ -71,7 +71,6 @@ public class KartControllerAlternative : MonoBehaviour
         if (driftLeft && !driftRight) //drift a izq
         {
             steerDirection = Input.GetAxis("Horizontal") < 0 ? -1.5f : -0.5f;
-
             if (isGrounded)
             {
                 rb.AddForce(transform.right * (outwardDriftForce * Time.deltaTime), ForceMode.Acceleration);

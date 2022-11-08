@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class RacePositionManager : MonoBehaviour
 
     [SerializeField] private Text[] PositionTable;
 
-    [SerializeField] private GameObject SlotsPanel;
+    public GameObject SlotsPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,21 +34,18 @@ public class RacePositionManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RefreshPositions();
-        }
-        
+        RefreshPositions();
     }
+    
 
     private int v;
     public void RefreshPositions()
     {
         if (!Pila.EmptyTDA())
         {
+            v = _gameManager.PlayersPositions.Length;
             for (int i = 0; i < _gameManager.PlayersPositions.Length; i++)
             {
                 Pila.StackKartsPositions(_gameManager.PlayersPositions[i]);
@@ -57,7 +55,8 @@ public class RacePositionManager : MonoBehaviour
             {
                 Debug.Log("entre a la cola");
                 PositionTable[i] = SlotsPanel.transform.GetChild(i).gameObject.GetComponent<Text>();
-                PositionTable[i].text = $"Pos.{i + 1} "+ Pila.TopPlayer().RacePosition + Pila.TopPlayer().name;
+                PositionTable[i].text = $"Pos.{v} "+ Pila.TopPlayer().RacePosition + Pila.TopPlayer().name;
+                v--;
                 Pila.UnstackPosition();
             }
         }

@@ -46,7 +46,8 @@ public class TurboSystem : MonoBehaviour
     {
         _currentTurboAmount += amount;
         _currentTurboAmount = Mathf.Clamp(_currentTurboAmount, -1, TotalTurboAmount);
-        return;
     }
-    
+
+   
+
 }
