@@ -6,7 +6,7 @@ using UnityEngine;
 public class KartControllerAlternative : MonoBehaviour
 {
     [SerializeField] private InputManager _inputManager;
-    
+    [SerializeField] private TurboSystem _turboSystem;
     [SerializeField] private float steerDirection;
     private float driftTime;
     [HideInInspector] public float currentSpeed = 0;
@@ -71,6 +71,9 @@ public class KartControllerAlternative : MonoBehaviour
         if (driftLeft && !driftRight) //drift a izq
         {
             steerDirection = Input.GetAxis("Horizontal") < 0 ? -1.5f : -0.5f;
+            
+            _turboSystem.GetTurbo();
+            
             if (isGrounded)
             {
                 rb.AddForce(transform.right * (outwardDriftForce * Time.deltaTime), ForceMode.Acceleration);
@@ -79,7 +82,7 @@ public class KartControllerAlternative : MonoBehaviour
         else if (driftRight && !driftLeft) //drift a der
         {
             steerDirection = Input.GetAxis("Horizontal") > 0 ? 1.5f : 0.5f;
-
+            _turboSystem.GetTurbo();
             if (isGrounded)
             {
                 rb.AddForce(transform.right * (-outwardDriftForce * Time.deltaTime), ForceMode.Acceleration);
