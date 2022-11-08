@@ -11,19 +11,17 @@ public class PositionRace : MonoBehaviour
     public int auxPoints;
 
     
-    public int MetaCruzada;
-    public int auxMetaCruzada;
-
-    public int TotalPoitns;
 
     private void Update()
     {
-        if (auxMetaCruzada != auxMetaCruzada || ControlPoints != auxPoints)
+        if (auxPoints != ControlPoints)
         {
-            TotalPoitns = +((auxPoints - ControlPoints) + (auxMetaCruzada - MetaCruzada) );
             
-            auxPoints = ControlPoints;
-            auxMetaCruzada = MetaCruzada;
         }
+    }
+
+    public void AddControlPoint()
+    {
+        ControlPoints++;
     }
 }

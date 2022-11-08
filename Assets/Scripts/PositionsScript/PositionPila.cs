@@ -16,7 +16,7 @@ public class PositionPila : MonoBehaviour
     public void StackKartsPositions(PositionRace kart)
     {
         int j;
-        for (j = index; j > 0 &&  KartPosition[j - 1].TotalPoitns >= kart.TotalPoitns; j--)
+        for (j = index; j > 0 &&  KartPosition[j - 1].ControlPoints >= kart.ControlPoints; j--)
         {
             KartPosition[j] = KartPosition[j - 1];
         }
