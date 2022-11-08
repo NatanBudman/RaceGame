@@ -7,6 +7,10 @@ public class KartControllerAlternative : MonoBehaviour
 {
     [SerializeField] private InputManager _inputManager;
     [SerializeField] private TurboSystem _turboSystem;
+    [SerializeField] private GameManager _manager;
+
+    [SerializeField] private TypeRunners _runners => _manager._PlayerStats;
+    
     [SerializeField] private float steerDirection;
     private float driftTime;
     [HideInInspector] public float currentSpeed = 0;
@@ -29,6 +33,8 @@ public class KartControllerAlternative : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
+        maxSpeed = _runners.velocity;
     }
 
 
