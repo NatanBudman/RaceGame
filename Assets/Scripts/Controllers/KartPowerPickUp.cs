@@ -10,6 +10,7 @@ public class KartPowerPickUp : MonoBehaviour
     [SerializeField] private KartControllerAlternative kart;
     [SerializeField] private GameManager _manager;
     [SerializeField] private TurboSystem _turboSystem;
+    [SerializeField] private PositionRace _positionRace;
     private TypeRunners runner => _manager._PlayerStats;
     #region RaceData
 
@@ -26,12 +27,10 @@ public class KartPowerPickUp : MonoBehaviour
     
     [SerializeField] private Text TotalPlayerCrossFinishLine;
 
-    [SerializeField] private int PositionInRace;
-
     [SerializeField] private Image TurboBar;
 
-    public bool isUseRulet = false;
-    public bool isHasPower = false;
+    [HideInInspector]  public bool isUseRulet = false;
+    [HideInInspector]  public bool isHasPower = false;
     
     #endregion
 
@@ -80,8 +79,15 @@ public class KartPowerPickUp : MonoBehaviour
         _CurrentSkill += Time.deltaTime;
         
         UpdateUI();
-        
-        
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("entre");
+            _positionRace.ControlPoints = ControlPointsReached;
+        }
+
+
+       
         
         if (isUseRulet)
         {

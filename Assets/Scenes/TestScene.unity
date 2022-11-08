@@ -2914,6 +2914,67 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.1863918, z: 1.02}
   m_Center: {x: -0.5, y: 0.5931959, z: 0.49}
+--- !u!1 &433517678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 433517679}
+  - component: {fileID: 433517681}
+  - component: {fileID: 433517680}
+  m_Layer: 0
+  m_Name: PositionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &433517679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433517678}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 452891006}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &433517680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433517678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb64fe47a7639043b4a62a25154a696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KartPosition: []
+--- !u!114 &433517681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433517678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f963e57f1b00341439b818e86aeec78a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameManager: {fileID: 1815173574}
+  Pila: {fileID: 433517680}
+  karts: []
+  PositionTable: []
 --- !u!1001 &435787831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3125,8 +3186,9 @@ Transform:
   m_Children:
   - {fileID: 1815173575}
   - {fileID: 811797381}
+  - {fileID: 433517679}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &454671780 stripped
 GameObject:
@@ -4300,6 +4362,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 99dd23988d72966408aaa1cd927aaf75, type: 3}
   m_PrefabInstance: {fileID: 555217803}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &557265315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 557265316}
+  m_Layer: 0
+  m_Name: Front
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &557265316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557265315}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 3.96}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 573777681}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &573777677
 GameObject:
   m_ObjectHideFlags: 0
@@ -4312,9 +4404,13 @@ GameObject:
   - component: {fileID: 573777680}
   - component: {fileID: 573777679}
   - component: {fileID: 573777678}
+  - component: {fileID: 573777684}
+  - component: {fileID: 573777683}
+  - component: {fileID: 573777682}
+  - component: {fileID: 573777685}
   m_Layer: 0
-  m_Name: TestPlayer
-  m_TagString: Untagged
+  m_Name: You
+  m_TagString: Runner
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4361,6 +4457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steerDirection: 0
+  currentSpeed: 0
   steerAmount: 0
   maxSpeed: 60
   boostSpeed: 0
@@ -4374,15 +4471,93 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573777677}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -435.80353, y: 0.7160001, z: 420.70224}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -427.63, y: 0.2, z: 420.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1724734663}
   - {fileID: 2077409293}
+  - {fileID: 1864205923}
+  - {fileID: 557265316}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &573777682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573777677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493c282d2ccb1e44dada3bc7031415da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ruletScript: {fileID: 695958132}
+  kart: {fileID: 573777680}
+  _manager: {fileID: 1815173574}
+  _turboSystem: {fileID: 573777684}
+  _positionRace: {fileID: 0}
+  ControlPointsReached: 0
+  TotalCrossFinishLine: 0
+  TotalPlayerCrossFinishLine: {fileID: 885349389}
+  TurboBar: {fileID: 1088784967}
+  isUseRulet: 0
+  isHasPower: 0
+  BackPowerPos: {fileID: 1864205923}
+  ForwardPowerPos: {fileID: 557265316}
+  SkillCoolwDown: 30
+  Wall: {fileID: 0}
+  FinsihPosition: 0
+--- !u!114 &573777683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573777677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3597624d76cc47440b9ce8e3cbecb0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Car: {fileID: 573777682}
+  _controllers: {fileID: 11400000, guid: 7d3d7c7462ad09b499943bc719afc393, type: 2}
+  _turboSystem: {fileID: 573777684}
+  _kartController: {fileID: 573777680}
+--- !u!114 &573777684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573777677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bc848e84a1a58540b2ee6ae31a6fe6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AddForce: 90
+  KartVelocity: 0
+  TotalTurboAmount: 100
+  _currentTurboAmount: 0
+  turboChargePerSecond: 18
+--- !u!114 &573777685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573777677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f27fde81a5c0cb4298a4b073acda5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RacePosition: 0
+  ControlPoints: 0
+  isChangePosition: 0
 --- !u!1001 &578377983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13609,17 +13784,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ruletScript: {fileID: 695958132}
-  kart: {fileID: 1695034461}
+  kart: {fileID: 0}
   _manager: {fileID: 1815173574}
+  _turboSystem: {fileID: 0}
+  _positionRace: {fileID: 0}
   ControlPointsReached: 0
   TotalCrossFinishLine: 0
   TotalPlayerCrossFinishLine: {fileID: 885349389}
-  PositionInRace: 0
   TurboBar: {fileID: 1088784967}
   isUseRulet: 0
   isHasPower: 0
-  TurboAmount: 0
-  TurboForce: 225
   BackPowerPos: {fileID: 1165074560}
   ForwardPowerPos: {fileID: 895855104}
   SkillCoolwDown: 30
@@ -13639,6 +13813,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Car: {fileID: 1695034464}
   _controllers: {fileID: 11400000, guid: 7d3d7c7462ad09b499943bc719afc393, type: 2}
+  _turboSystem: {fileID: 0}
+  _kartController: {fileID: 0}
 --- !u!1001 &1699122642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14561,6 +14737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rules: {fileID: 11400000, guid: bc7fa7f93129ed54ab36e3cd60073fd8, type: 2}
+  player: {fileID: 573777685}
   StartPoint: {fileID: 1470444619}
   isStartRace: 0
   IAsSpawning:
@@ -14575,6 +14752,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f016aa976822d3648b4896cf07851f54, type: 2}
   Position: 0
   FinsihPosition: 0
+  PlayersPositions: []
 --- !u!4 &1815173575
 Transform:
   m_ObjectHideFlags: 0
@@ -14810,6 +14988,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3200459759129702226, guid: 81c979b0850ae16428efe01c18b00f30, type: 3}
   m_PrefabInstance: {fileID: 1853314772}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1864205922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1864205923}
+  m_Layer: 0
+  m_Name: Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1864205923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864205922}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3.59}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 573777681}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1864995287
 PrefabInstance:
   m_ObjectHideFlags: 0

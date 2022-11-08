@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rules:
     DificultIA: 2
-    TimeToSpawnBox: 7
+    TimeToSpawnBox: 4
     IsHasBalance: 1
-    IAsPlayers: 7
+    IAsPlayers: 2
     TurnsCount: 3
     PlayerCharacterStats: {fileID: 11400000, guid: af1812db408794947a6dd420619c2418, type: 2}
-    AIStats: {fileID: 0}
+    AIStats: {fileID: 11400000, guid: cd8e7bac6fc377646a4cfba1ef66817f, type: 2}
     TimeToStart: 4

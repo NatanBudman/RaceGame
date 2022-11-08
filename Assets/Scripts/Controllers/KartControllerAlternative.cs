@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class KartControllerAlternative : MonoBehaviour
 {
+    [SerializeField] private InputManager _inputManager;
     
     [SerializeField] private float steerDirection;
     private float driftTime;
@@ -44,11 +45,11 @@ public class KartControllerAlternative : MonoBehaviour
     {
         realSpeed = transform.InverseTransformDirection(rb.velocity).z; //real velocity before setting the value
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(_inputManager.MovForward))
         {
             currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * 0.5f); //lerp=(el valor de interpolacion, el valor al que quiero llegar, velocidad de interpolacion/aceleracion)
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(_inputManager.MovReverse))
         {
             currentSpeed = Mathf.Lerp(currentSpeed, -maxSpeed / 1.75f, Time.deltaTime * 1f);
         }

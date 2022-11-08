@@ -11,10 +11,10 @@ public class InputManager : MonoBehaviour
 
     #region MoveInputs
 
-       private KeyCode MovForward => _controllers.MovForward;
+       public KeyCode MovForward => _controllers.MovForward;
        private KeyCode MovLeft => _controllers.MovLeft;
        private KeyCode MovRight => _controllers.MovRight;
-       private KeyCode MovReverse => _controllers.MovReverse;
+       public KeyCode MovReverse => _controllers.MovReverse;
 
     #endregion
 
