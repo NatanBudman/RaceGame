@@ -54,7 +54,7 @@ public class RacePositionManager : MonoBehaviour
             for (int i = 0; i < _gameManager.PlayersPositions.Length; i++)
             {
                 PositionTable[i] = SlotsPanel.transform.GetChild(i).gameObject.GetComponent<Text>();
-                PositionTable[i].text = $"Pos.{v} "+ Pila.TopPlayer().RacePosition + Pila.TopPlayer().name;
+                PositionTable[i].text = $"Pos.{i + 1} "+ Pila.TopPlayer().RacePosition + Pila.TopPlayer().name;
                 v--;
                 Pila.UnstackPosition();
             }

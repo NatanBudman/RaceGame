@@ -27,6 +27,7 @@ public class IAController : MonoBehaviour
     [SerializeField] private GameObject PointPref;
     [SerializeField]private GameObject[] points;
     public int _countPoint = 0;
+    private int auxPoint;
     public int _RutePoint = 0;
 
     [SerializeField] private NavMeshAgent agent;
@@ -99,18 +100,16 @@ public class IAController : MonoBehaviour
 
     private bool hasTurbo;
 
-    private void FixedUpdate()
-    {
-        _positionRace.ControlPoints = _countPoint;
-    }
+   
 
     // Update is called once per frame
     void Update()
     {
-        
-        _positionRace.ControlPoints = _countPoint;
-        _positionRace.MetaCruzada = TotalPlayerCrossFinishLine;
-        
+        if (auxPoint != _countPoint)
+        {
+            _positionRace.AddControlPoint();
+            auxPoint = _countPoint;
+        }
         if (turboSystem._currentTurboAmount >= 1)
         {
            agent.speed = turboSystem.UseTurbo(true,agent.speed);

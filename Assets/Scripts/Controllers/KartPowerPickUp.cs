@@ -17,6 +17,7 @@ public class KartPowerPickUp : MonoBehaviour
         [Space] [Header("Race Parameter")] [Space]
         
         public int ControlPointsReached = 0;
+        private int controlAus;
         public int TotalCrossFinishLine = 0;
 
     #endregion
@@ -74,8 +75,12 @@ public class KartPowerPickUp : MonoBehaviour
 
     private void Update()
     {
-        _positionRace.ControlPoints = ControlPointsReached;
-        _positionRace.MetaCruzada = TotalCrossFinishLine;
+        if (controlAus != ControlPointsReached)
+        {
+            _positionRace.AddControlPoint();
+            controlAus = ControlPointsReached;
+        }
+        
         
         if (_manager.CountStart >= 1)
         {
