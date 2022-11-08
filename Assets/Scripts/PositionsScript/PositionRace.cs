@@ -20,7 +20,7 @@ public class PositionRace : MonoBehaviour
     {
         if (auxMetaCruzada != auxMetaCruzada || ControlPoints != auxPoints)
         {
-            TotalPoitns = +((auxPoints - ControlPoints) + (auxMetaCruzada - MetaCruzada));
+            TotalPoitns = +((auxPoints - ControlPoints) + (auxMetaCruzada - MetaCruzada) );
             
             auxPoints = ControlPoints;
             auxMetaCruzada = MetaCruzada;
