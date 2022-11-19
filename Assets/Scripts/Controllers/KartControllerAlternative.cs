@@ -11,11 +11,11 @@ public class KartControllerAlternative : MonoBehaviour
 
     [SerializeField] private TypeRunners _runners => _manager._PlayerStats;
     
-    [SerializeField] private float steerDirection;
-    private float driftTime;
-    [HideInInspector] public float currentSpeed = 0;
-    private float realSpeed;//not the applied speed
     [SerializeField] private float steerAmount;
+    [SerializeField] private float steerDirection;
+    [HideInInspector] public float currentSpeed = 0;
+    private float driftTime;
+    private float realSpeed; //not the applied speed
     
     public float maxSpeed; //max possible speed
     public float boostSpeed; //speed while boosting
@@ -24,17 +24,17 @@ public class KartControllerAlternative : MonoBehaviour
     private bool driftLeft;
     private bool driftRight;
 
-    public bool isSliding = false;
     private bool isGrounded;
-    
-    
+
+
     [SerializeField] private Rigidbody rb;
     
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
-        maxSpeed = _runners.velocity;
+        _turboSystem = GetComponent<TurboSystem>();
+        _manager = FindObjectOfType<GameManager>();
+        //maxSpeed = _runners.velocity;
     }
 
 
@@ -154,14 +154,6 @@ public class KartControllerAlternative : MonoBehaviour
         {
             driftLeft = false;
             driftRight = false;
-            isSliding = false;
         }
     }
 }
-
-
-
-/*if (Input.GetKey(KeyCode.Space) && isGrounded && currentSpeed > 35f && Input.GetAxis("Horizontal") != 0)
-        {
-            driftTime += Time.deltaTime;
-        }*/

@@ -4663,14 +4663,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputManager: {fileID: 573777683}
-  _gameManager: {fileID: 1815173574}
+  _turboSystem: {fileID: 573777684}
+  _manager: {fileID: 0}
+  steerAmount: 0
   steerDirection: 0
   currentSpeed: 0
-  steerAmount: 0
   maxSpeed: 60
   boostSpeed: 0
   outwardDriftForce: 50000
-  isSliding: 0
   rb: {fileID: 573777679}
 --- !u!4 &573777681
 Transform:
