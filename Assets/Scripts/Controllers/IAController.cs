@@ -38,7 +38,7 @@ public class IAController : MonoBehaviour
 
     [HideInInspector] public bool isSlow;
     
-    public int TotalPlayerCrossFinishLine;
+    public int TotalPlayerCrossFinishLine = 1;
 
     public int PositionInRace;
     [HideInInspector]public int FinsihPosition;

@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
 
         if (player.GetComponent<KartPowerPickUp>().TotalCrossFinishLine > TurnsCount)
         {
+            player.GetComponent<KartPowerPickUp>().TotalPlayerCrossFinishLine.gameObject.SetActive(false);
             FinsihRace = true;
             VictoryPanel.SetActive(true);
             racePositionManager.SlotsPanel.transform.position = VictoryPanel.transform.position;
