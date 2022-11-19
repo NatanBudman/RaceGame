@@ -63,6 +63,9 @@ public class KartPowerPickUp : MonoBehaviour
     private float _CurrentSkill;
     
     [HideInInspector]public int FinsihPosition;
+
+
+    [SerializeField] private Transform LastSpawnPosition;
     
     void Start()
     {
@@ -118,6 +121,15 @@ public class KartPowerPickUp : MonoBehaviour
                 isSlowed = false;
             }
         }
+        
+        Debug.DrawRay(transform.position,-transform.up*5,Color.magenta);
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position,-transform.up,out hit,5,LayerMask.GetMask("Ground")))
+        {
+            LastSpawnPosition.position = transform.position;
+        }
+        
     }
     
 
@@ -203,6 +215,14 @@ public class KartPowerPickUp : MonoBehaviour
            GameObject Fake = Instantiate(runner.SpecialPower, BackPowerPos.position, Quaternion.identity);
            Fake.GetComponent<FakeSkill>().OwnerObject = this.gameObject;
             return;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ZoneReSpawn"))
+        {
+            transform.position = LastSpawnPosition.position;
         }
     }
 }
