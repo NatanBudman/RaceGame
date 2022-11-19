@@ -19,6 +19,7 @@ public class Settings : MonoBehaviour
   public Text KeyPower;
   public Text KeyJump;
   public Text KeyTurbo;
+  public Text KeySkill;
   
     private bool MovForward;
     private bool MovReverse;
@@ -27,6 +28,7 @@ public class Settings : MonoBehaviour
     private bool Jump;
     private bool Power;
     private bool Turbo;
+    private bool Skill;
   
     private bool IsSelectingKey = false;
 
@@ -121,6 +123,13 @@ public class Settings : MonoBehaviour
         KeyTurbo.text ="" + _controllers.TurboActive;
        
     }
+
+    if (Skill)
+    {
+      _controllers.SkillActivate = ChangeKey;
+      KeySkill.text ="" + _controllers.SkillActivate;
+
+    }
     
   }
   public void ForwardButton()
@@ -164,6 +173,12 @@ public class Settings : MonoBehaviour
   public void TurbodButton()
   {
     Turbo = true;
+    IsSelectingKey = true;
+  }
+
+  public void SkillButton()
+  {
+    
     IsSelectingKey = true;
   }
 

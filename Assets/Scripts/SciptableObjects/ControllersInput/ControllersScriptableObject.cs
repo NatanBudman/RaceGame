@@ -47,8 +47,11 @@ public class ControllersScriptableObject : ScriptableObject
         set => _controls.TurboActive = value;
     }
     
-    public KeyCode SkillActivate => _controls.SkillActivate;
-
+    public KeyCode SkillActivate
+    {
+        get => _controls.SkillActivate;
+        set => _controls.SkillActivate = value;
+    }
 }
 [System.Serializable]
 public struct ControlsStruct
