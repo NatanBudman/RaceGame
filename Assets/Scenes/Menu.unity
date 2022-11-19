@@ -8311,6 +8311,7 @@ MonoBehaviour:
   Settings: {fileID: 423664756}
   Levels: {fileID: 1334402723}
   Characters: {fileID: 1315600817}
+  directory: {fileID: 1941305867}
   confirm: {fileID: 42631222}
   back: {fileID: 169633213}
 --- !u!1 &771293103
@@ -19615,7 +19616,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 9024c53c60929644faf4271d09fc9b1d, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
 public class MenuScript : MonoBehaviour
@@ -11,7 +12,7 @@ public class MenuScript : MonoBehaviour
     [SerializeField] private GameObject Levels;
     [SerializeField] private GameObject Characters;
 
-    [SerializeField] private TimelineClip tileClip;
+    [SerializeField] private PlayableDirector directory;
 
     public AudioSource confirm;
     public AudioSource back;
@@ -27,7 +28,12 @@ public class MenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        GameManager.IsGamePuase(false);
+        
         ActivePanel(MenuKey);
+        
+        directory.Play();
     }
 
     void ActivePanel(string Panel)
