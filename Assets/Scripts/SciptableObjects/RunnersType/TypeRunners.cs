@@ -20,6 +20,9 @@ public class TypeRunners : ScriptableObject
       get => _stats.SpecialPower;
       set => _stats.SpecialPower = value;
   }
+
+  public bool isWaitingPlayer => _stats.isWaitingPlayer;
+
 }
 [System.Serializable]
 public struct Stats
@@ -33,4 +36,6 @@ public struct Stats
     public float TurnSpeed;
 
     public GameObject SpecialPower;
+
+    public bool isWaitingPlayer;
 }
