@@ -26,7 +26,7 @@ public class KartPowerPickUp : MonoBehaviour
 
     [Space] [Header("Canvas")] [Space] 
     
-    [SerializeField] private Text TotalPlayerCrossFinishLine;
+    public Text TotalPlayerCrossFinishLine;
 
     [SerializeField] private Image TurboBar;
 
@@ -137,7 +137,7 @@ public class KartPowerPickUp : MonoBehaviour
 
     public void UpdateUI()
     {
-        TotalPlayerCrossFinishLine.text = "" + TotalCrossFinishLine + "\n" + " /" + "\n" + "   "+ _manager.TurnsCount;
+        TotalPlayerCrossFinishLine.text = "" + TotalCrossFinishLine + "/" + _manager.TurnsCount;
         
         TurboBar.fillAmount = _turboSystem._currentTurboAmount / _turboSystem.TotalTurboAmount;
     }
