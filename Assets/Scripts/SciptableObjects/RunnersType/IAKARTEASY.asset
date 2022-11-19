@@ -18,3 +18,4 @@ MonoBehaviour:
     EnergyConsum: 0
     TurnSpeed: 0
     SpecialPower: {fileID: 3198675565327418975, guid: d925c91c2cd9da646b051c251cc9834f, type: 3}
+    isWaitingPlayer: 1

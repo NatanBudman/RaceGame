@@ -14,6 +14,8 @@ public class IAController : MonoBehaviour
     [SerializeField] private TurboSystem turboSystem;
     [SerializeField] private PositionRace _positionRace;
 
+    private PositionRace player;
+
     #region Stats
     
     private float Speed => IAStats.velocity;
@@ -22,6 +24,8 @@ public class IAController : MonoBehaviour
     private float TurnSpeed => IAStats.TurnSpeed;
 
     private float _acceleration => IAStats.Acceleration;
+
+    private bool isWaitingPlayer => IAStats.isWaitingPlayer;
     #endregion
 
     [SerializeField] private GameObject PointPref;
@@ -56,11 +60,14 @@ public class IAController : MonoBehaviour
     [Space] [Header("Raycast Power/Skill")] [Space] 
     
     [SerializeField] private float RaycastaDist;
+    
+    
     void Start()
     {
 
         _IAmanager = FindObjectOfType<IAsManager>();
         _manager = FindObjectOfType<GameManager>();
+        player = FindObjectOfType<KartPowerPickUp>().GetComponent<PositionRace>();
 
         _currentSpeed = Speed;
         
@@ -172,6 +179,12 @@ public class IAController : MonoBehaviour
         {
             isBackItem = true;
             UsePower();
+        }
+        
+
+        if (_positionRace.ControlPoints > player.ControlPoints + 1 && isWaitingPlayer)
+        {
+            Slowed(true,3, 30);
         }
     }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Kart4
   m_EditorClassIdentifier: 
   _stats:
-    velocity: 75
+    velocity: 65
     Acceleration: 0.5
     EnergyConsum: 0
     TurnSpeed: 15
