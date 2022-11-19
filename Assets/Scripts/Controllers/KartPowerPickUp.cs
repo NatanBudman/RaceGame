@@ -128,6 +128,7 @@ public class KartPowerPickUp : MonoBehaviour
         if (Physics.Raycast(transform.position,-transform.up,out hit,5,LayerMask.GetMask("Ground")))
         {
             LastSpawnPosition.position = transform.position;
+            LastSpawnPosition.rotation = hit.collider.gameObject.transform.rotation;
         }
         
     }
@@ -223,6 +224,8 @@ public class KartPowerPickUp : MonoBehaviour
         if (other.CompareTag("ZoneReSpawn"))
         {
             transform.position = LastSpawnPosition.position;
+            transform.rotation = LastSpawnPosition.rotation;
+
         }
     }
 }
