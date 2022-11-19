@@ -17919,6 +17919,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8133671821345561724, guid: fbe42c8d97f365449bd4b7c70776e97c, type: 3}
+      propertyPath: ImageVelocity
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133671821345561724, guid: fbe42c8d97f365449bd4b7c70776e97c, type: 3}
+      propertyPath: TimeToStopRulet
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133671821345561724, guid: fbe42c8d97f365449bd4b7c70776e97c, type: 3}
       propertyPath: Powers.Array.data[3]
       value: 
       objectReference: {fileID: 6548639979703653681, guid: f47aa58bb76bc5b47b77c471ee302bc5, type: 3}
