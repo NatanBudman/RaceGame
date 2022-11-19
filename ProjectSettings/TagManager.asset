@@ -8,6 +8,7 @@ TagManager:
   - Laser
   - Item
   - IAPoint
+  - ZoneReSpawn
   layers:
   - Default
   - TransparentFX
