@@ -48,6 +48,9 @@ public class TurboSystem : MonoBehaviour
         _currentTurboAmount = Mathf.Clamp(_currentTurboAmount, -1, TotalTurboAmount);
     }
 
-   
+    public void GetTurbo()
+    {
+        _currentTurboAmount += 0.42f + Time.deltaTime;
+    }
 
 }
