@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class MenuScript : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class MenuScript : MonoBehaviour
     [SerializeField] private GameObject Settings;
     [SerializeField] private GameObject Levels;
     [SerializeField] private GameObject Characters;
+
+    [SerializeField] private TimelineClip tileClip;
 
     public AudioSource confirm;
     public AudioSource back;
