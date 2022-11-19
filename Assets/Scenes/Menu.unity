@@ -1090,11 +1090,11 @@ MonoBehaviour:
   m_Options:
     m_Options:
     - m_Text: MAP 1
-      m_Image: {fileID: 21300000, guid: 7c450106110e46d46b64f2a7e2bd9240, type: 3}
+      m_Image: {fileID: 21300000, guid: 73435d78ed5614c499be8dc74cea1908, type: 3}
     - m_Text: MAP 2
-      m_Image: {fileID: 21300000, guid: a58573ec830e9fb49835566f5e2edee4, type: 3}
+      m_Image: {fileID: 21300000, guid: 73435d78ed5614c499be8dc74cea1908, type: 3}
     - m_Text: MAP 3
-      m_Image: {fileID: 21300000, guid: e4ece2b45cff06d4a91d8dfbef49555c, type: 3}
+      m_Image: {fileID: 21300000, guid: 73435d78ed5614c499be8dc74cea1908, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
