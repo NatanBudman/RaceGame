@@ -130,7 +130,16 @@ public class KartPowerPickUp : MonoBehaviour
             LastSpawnPosition.position = transform.position;
             LastSpawnPosition.rotation = hit.collider.gameObject.transform.rotation;
         }
-        
+        /*
+        if (Physics.Raycast(transform.position,-transform.up,out hit,5,LayerMask.GetMask("Water")))
+        {
+            if (!Physics.Raycast(transform.position,-transform.up,out hit,5,LayerMask.GetMask("Ground")))
+            {
+                Debug.Log("entre");
+                Slowed(true,3,35);
+            }
+        }
+        */
     }
     
 
