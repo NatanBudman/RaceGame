@@ -59,6 +59,8 @@ public class KartPowerPickUp : MonoBehaviour
     [Header("Skill")] [Space] 
     [SerializeField] private float SkillCoolwDown;
 
+    [SerializeField] private Image SkillCooldownImage;
+
     [SerializeField] private GameObject Wall;
     private float _CurrentSkill;
     
@@ -71,6 +73,7 @@ public class KartPowerPickUp : MonoBehaviour
     {
         
         BaseKarVel = kart.maxSpeed;
+        _CurrentSkill = SkillCoolwDown;
 
     }
 
@@ -78,6 +81,8 @@ public class KartPowerPickUp : MonoBehaviour
 
     private void Update()
     {
+        SkillCooldownImage.fillAmount = _CurrentSkill / SkillCoolwDown;
+        
         if (controlAus != ControlPointsReached)
         {
             _positionRace.AddControlPoint();
