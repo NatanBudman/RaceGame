@@ -4602,6 +4602,7 @@ MonoBehaviour:
   AddForce: 90
   KartVelocity: 0
   TotalTurboAmount: 100
+  driftTurboToAdd: 0.28
   _currentTurboAmount: 0
   turboChargePerSecond: 18
 --- !u!114 &573777685

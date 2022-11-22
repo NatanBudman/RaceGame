@@ -9,6 +9,7 @@ public class TurboSystem : MonoBehaviour
     [HideInInspector] public float KartVelocity;
 
     public float TotalTurboAmount;
+    [SerializeField] private float driftTurboToAdd;
     [HideInInspector] public float _currentTurboAmount;
 
     [SerializeField] private float turboChargePerSecond;
@@ -50,7 +51,7 @@ public class TurboSystem : MonoBehaviour
 
     public void GetTurbo()
     {
-        _currentTurboAmount += 0.42f + Time.deltaTime;
+        _currentTurboAmount += driftTurboToAdd + Time.deltaTime;
     }
 
 }

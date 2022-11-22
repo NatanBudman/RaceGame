@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 86d99805683c053428b9667d85c946c6
   - enabled: 1
-    path: Assets/Scenes/TestScene.unity
+    path: Assets/Scenes/Race Track.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

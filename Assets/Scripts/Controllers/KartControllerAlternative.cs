@@ -34,7 +34,7 @@ public class KartControllerAlternative : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         _turboSystem = GetComponent<TurboSystem>();
         _manager = FindObjectOfType<GameManager>();
-        maxSpeed = _runners.velocity;
+       maxSpeed = _runners.velocity;
     }
 
 

@@ -206,13 +206,13 @@ public class KartPowerPickUp : MonoBehaviour
 
         if (PowerHasPlayer.GetComponent<PinchosScript>())
         {
-            GameObject pincho =Instantiate(PowerHasPlayer, BackPowerPos.position, Quaternion.identity);
+            GameObject pincho = Instantiate(PowerHasPlayer, BackPowerPos.position, Quaternion.identity);
             pincho.GetComponent<PinchosScript>().OwnerObject = this.gameObject;
             return;
         }
     }
 
-    void SkillSelected()
+    private void SkillSelected()
     {
         if (runner.SpecialPower.GetComponent<ShieldCollision>())
         {
@@ -224,7 +224,7 @@ public class KartPowerPickUp : MonoBehaviour
         {
            GameObject Fake = Instantiate(runner.SpecialPower, BackPowerPos.position, Quaternion.identity);
            Fake.GetComponent<FakeSkill>().OwnerObject = this.gameObject;
-            return;
+           return;
         }
     }
 
