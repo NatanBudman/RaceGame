@@ -10,7 +10,7 @@ public class TurboSystem : MonoBehaviour
 
     public float TotalTurboAmount;
     [SerializeField] private float driftTurboToAdd;
-    [HideInInspector] public float _currentTurboAmount;
+    [HideInInspector] public  float _currentTurboAmount;
 
     [SerializeField] private float turboChargePerSecond;
 
