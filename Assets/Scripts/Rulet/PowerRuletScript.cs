@@ -1,7 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PowerRuletScript : MonoBehaviour
 {
@@ -35,6 +36,12 @@ public class PowerRuletScript : MonoBehaviour
     public GameObject PowerSelected;
 
     [Space] [SerializeField] private GameObject[] Powers;
+    
+    
+    
+    // Events
+
+    public EventHandler Spin;
     
     
     // Start is called before the first frame update
@@ -131,5 +138,11 @@ public class PowerRuletScript : MonoBehaviour
     {
         ClosePower = Random.Range(0, ArrayPowerImage.Length);
         PowerSelected = Powers[ClosePower];
+    }
+
+    public void SpinRulet()
+    {
+        
+        Spin?.Invoke(this,EventArgs.Empty);
     }
 }
